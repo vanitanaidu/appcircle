@@ -3,10 +3,10 @@ class CreateUsers < ActiveRecord::Migration[5.0]
     create_table :users do |t|
       t.string :name
       t.text :about_me
+      t.text :past_jobs
       t.text :interests
       t.text :fav_movies
       t.text :fav_food
-      t.string :user_id
       t.string :friend_id
 
       t.timestamps
