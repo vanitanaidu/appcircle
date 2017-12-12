@@ -7,7 +7,23 @@ class UsersController < ApplicationController
   end
 
   def create
-    render json {}, status: 201
+    user = User.new(user_params)
+    debugger
+    if user.save
+      render json: user, status: 201
+    else
+      render json: {
+        errors: {
+          messages:  user.errors.messages
+        }
+      }, status: 422
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :about_me, :past_jobs, :interests, :fav_movies, :fav_food, :friend_id)
   end
 
 
