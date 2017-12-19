@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'webpacker', '~> 3.0'
+#use webpacker to compile all assets
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
@@ -42,6 +44,7 @@ group :test do
   gem 'capybara'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'selenium-webdriver'
+
 end
 
 group :development do

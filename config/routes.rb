@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
-    resources :users, only: [:index, :create, :show, :update, :destroy]
+  root to: 'welcome#home'
+
+    resources :users, only: [:index, :create, :show, :update, :destroy] do
+      resources :reviews, only: [:index, :create, :destroy]
+    end
 
 end

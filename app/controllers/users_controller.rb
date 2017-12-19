@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    status: 204
+    # status: 204
   end
 
   private
@@ -39,9 +39,10 @@ class UsersController < ApplicationController
     if !@user
       render json: {
         errors: {
-          messages: { user: "user can't be found"}
+          messages: { user: "user can't be found" }
         }
       }, status: 404
+    end
   end
 
   def render_errors
@@ -53,9 +54,8 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :about_me, :past_jobs, :interests, :fav_movies, :fav_food, :friend_id)
+    params.require(:user).permit(:name, :about_me, :past_jobs, :interests, :fav_movies, :fav_food, :friend_id, :age,
+    :state, :city, :languages,  :schools)
   end
-
-
 
 end
