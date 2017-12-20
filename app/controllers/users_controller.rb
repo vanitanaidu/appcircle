@@ -54,8 +54,27 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :about_me, :past_jobs, :interests, :fav_movies, :fav_food, :friend_id, :age,
-    :state, :city, :languages,  :schools)
+    params.require(:user).permit(
+    [
+      :name,
+      :about_me,
+      :past_jobs,
+      :interests,
+      :fav_movies,
+      :fav_food,
+      :friend_id,
+      :age,
+      :state,
+      :city,
+      :languages,
+      :schools,
+      users_attributes: %I[
+        id
+        photo
+        _destroy
+      ]
+    ]
+      )
   end
 
 end

@@ -39,7 +39,7 @@ class Users extends Component {
           const index = this.state.users.findIndex(user => user.id === userId)
           this.setState({
             users: [
-              ...this.state.users.slice(0, index)
+              ...this.state.users.slice(0, index),
               ...this.state.users.slice(index + 1)
             ]
           })
@@ -65,7 +65,7 @@ class Users extends Component {
       <Route exact path={match.url} render={() => (
         <div>
           <Link to={`${match.url}/new`}>Add New User</Link>
-          <h2 className="header"> List Users </h2>
+          <h2 className="header"> Index page - List Users </h2>
           {renderUserProfile}
         </div>
       )} />

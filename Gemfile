@@ -8,6 +8,10 @@ end
 gem 'webpacker', '~> 3.0'
 #use webpacker to compile all assets
 
+gem 'paperclip', '~> 5.1.0'
+
+gem 'rack-cors'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use postgresql as the database for Active Record

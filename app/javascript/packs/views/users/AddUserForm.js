@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import ImageUploader from 'react-images-upload';
 
 class AddUserForm extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
+      profilepics: [],
       name: "",
       about_me: "",
       past_jobs: "",
@@ -39,6 +41,11 @@ handleOnSubmit = (event) => {
 
 }
 
+onSelect(photo) {
+  this.setState({
+    profilepics: this.state.profilepics.concat(photo)
+  })
+}
 
 handleOnChange = (event) => {
   const { name, value } = event.target //the above line of code is the same as:
@@ -48,6 +55,7 @@ handleOnChange = (event) => {
 
 }
     render() {
+
       return (
         <div>
           <h3 className="header"> Add New User </h3>
@@ -152,6 +160,16 @@ handleOnChange = (event) => {
                   name="city"
                   onChange={this.handleOnChange} />
             </div>
+
+
+                <ImageUploader
+                 withIcon={true}
+                 buttonText='Choose images'
+                 onChange={this.onSelect}
+                 imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                 maxFileSize={5242880}
+                 />
+
 
               <button type="submit"> Upload Profile </button>
           </form>
