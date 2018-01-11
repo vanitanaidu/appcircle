@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { Link, Route } from 'react-router-dom'
 import AddUserForm from './AddUserForm'
-
+import Users from './UserDetails'
 
 class Users extends Component {
 
   constructor(props) {
     super(props)
-
+debugger
     this.state = {
-      users: []
+      users: [],
     }
   }
 
@@ -23,9 +23,9 @@ class Users extends Component {
 
   addUser = (user) => {
     this.setState({
-      user: this.state.users.concat(user)
+       users: this.state.users.concat(user)  // or you could also do `users: [this.state.users, ...user],`
     }, () => {
-      this.props.history.replace('/users')
+      this.props.history.replace(`/users/${user.id}`)
     })
   }
 
@@ -33,7 +33,7 @@ class Users extends Component {
     const request = {
       method: 'DELETE'
     }
-    fetch(`/users/${userId}`, request)
+    fetch(`/users/${userId}`, response)
       .then(response => {
         if (response.ok) {
           const index = this.state.users.findIndex(user => user.id === userId)
@@ -51,7 +51,9 @@ class Users extends Component {
   }
 
   render() {
-    const { match } = this.props
+
+    const { match } = this.props  // this is equivalent to writing.... const match = this.props
+    // const userId = this.state.users.map(user => (user.id))
     const renderUserProfile = this.state.users.map(user => (
 
       <div className={`user_${user.id}_profile`} key={user.id}>
@@ -61,7 +63,7 @@ class Users extends Component {
     ))
   return (
     <div>
-      <Route path={`${match.url}/new`} render={() => <AddUserForm addUser={this.addUser} />}/>
+      <Route path={`${match.url}/new`} render={() =>  <AddUserForm addUser={this.addUser.bind(this)} />} />
       <Route exact path={match.url} render={() => (
         <div>
           <Link to={`${match.url}/new`}>Add New User</Link>
@@ -69,9 +71,12 @@ class Users extends Component {
           {renderUserProfile}
         </div>
       )} />
+      <UserDetails users={this.state.users}
     </div>
   )
  }
 }
 
 export default Users
+// this page is your index page that renders all the users.
+//so basically when a user clicks on the link 'users', he/she gets directed to this page.

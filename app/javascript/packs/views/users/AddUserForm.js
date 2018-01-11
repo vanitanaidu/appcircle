@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
-import ImageUploader from 'react-images-upload';
+import React, { Component } from 'react';
+import './user_form.css';
+import UserDetails from './UserDetails';
 
 class AddUserForm extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      profilepics: [],
+      profile_pics: "",
       name: "",
       about_me: "",
       past_jobs: "",
@@ -18,48 +19,51 @@ class AddUserForm extends Component {
       state: "",
       city: "",
       languages: "",
-      schools: ""
+      schools: "",
 
     }
   }
 
+  // handlePhotoChange = (e) => {
+  //   this.setState({
+  //     profilepics: [...this.state.profilepics, e.target.value]
+  //   })
+  // }
+
 handleOnSubmit = (event) => {
   event.preventDefault()
-  const userData = Object.assign({}, this.state)
-  const request = {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      user: userData
-    })
-  }
-  fetch('/users', request)
-  .then(response => response.json())
-  .then(user => this.props.addUser(user))
-
-}
-
-onSelect(photo) {
-  this.setState({
-    profilepics: this.state.profilepics.concat(photo)
-  })
-}
+  this.props.addUser(this.state)
+  // this.props.store.dispatch(addUserDetail(this.state)) // addUserDetail here is the action and this.state is state. Dispatch is called on the state and action to persist changees in the state
+//   const userData = Object.assign({}, this.state)
+//   //  debugger
+//   const request = {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       user: userData
+//     })
+//   }
+//
+//   fetch('/MyProfilePage', request)
+//   .then(response => response.json())
+//   .then(user => this.props.addUser(user))
+//
+ }
 
 handleOnChange = (event) => {
   const { name, value } = event.target //the above line of code is the same as:
   this.setState({                       // const name = event.target.name
       [name]: value,                    // const value = event.target.value
   })
-
 }
     render() {
 
       return (
         <div>
           <h3 className="header"> Add New User </h3>
-          <form className="new_video_form" onSubmit={this.handleOnSubmit}>
+          <form className="new_video_form" onSubmit={(event) => this.handleOnSubmit(event)} >
 
             <div>
               <div>
@@ -68,7 +72,8 @@ handleOnChange = (event) => {
                 <input
                   type="text"
                   name="name"
-                  onChange={this.handleOnChange}/>
+                  onChange={(event) => this.handleOnChange(event)} />
+                  // if you want to call `onChange={this.handleOnChange}``, you have bind it to `this` at the top. Else the syntax would be .. onChange={(event) => this.handleOnChange(event)}
             </div>
 
             <div>
@@ -77,7 +82,7 @@ handleOnChange = (event) => {
               </div>
                 <textarea
                   name="about_me"
-                  onChange={this.handleOnChange} />
+                  onChange={(event) => this.handleOnChange(event)} />
             </div>
 
             <div>
@@ -86,7 +91,7 @@ handleOnChange = (event) => {
               </div>
                 <textarea
                   name="age"
-                  onChange={this.handleOnChange} />
+                  onChange={(event) => this.handleOnChange(event)} />
             </div>
 
             <div>
@@ -95,7 +100,7 @@ handleOnChange = (event) => {
               </div>
                 <textarea
                   name="past_jobs"
-                  onChange={this.handleOnChange} />
+                  onChange={(event) => this.handleOnChange(event)} />
             </div>
 
             <div>
@@ -104,7 +109,7 @@ handleOnChange = (event) => {
               </div>
                 <textarea
                   name="interests"
-                  onChange={this.handleOnChange} />
+                  onChange={(event) => this.handleOnChange(event)} />
             </div>
 
             <div>
@@ -113,7 +118,7 @@ handleOnChange = (event) => {
               </div>
                 <textarea
                   name="schools"
-                  onChange={this.handleOnChange} />
+                  onChange={(event) => this.handleOnChange(event)} />
             </div>
 
             <div>
@@ -122,7 +127,7 @@ handleOnChange = (event) => {
               </div>
                 <textarea
                   name="languages"
-                  onChange={this.handleOnChange} />
+                  onChange={(event) => this.handleOnChange(event)} />
             </div>
 
             <div>
@@ -131,7 +136,7 @@ handleOnChange = (event) => {
               </div>
                 <textarea
                   name="fav_movies"
-                  onChange={this.handleOnChange} />
+                  onChange={(event) => this.handleOnChange(event)} />
             </div>
 
             <div>
@@ -140,7 +145,7 @@ handleOnChange = (event) => {
               </div>
                 <textarea
                   name="fav_food"
-                  onChange={this.handleOnChange} />
+                  onChange={(event) => this.handleOnChange(event)} />
             </div>
 
             <div>
@@ -149,7 +154,7 @@ handleOnChange = (event) => {
               </div>
                 <textarea
                   name="state"
-                  onChange={this.handleOnChange} />
+                  onChange={(event) => this.handleOnChange(event)} />
             </div>
 
             <div>
@@ -158,21 +163,23 @@ handleOnChange = (event) => {
               </div>
                 <textarea
                   name="city"
-                  onChange={this.handleOnChange} />
+                  onChange={(event) => this.handleOnChange(event)} />
             </div>
 
-
-                <ImageUploader
-                 withIcon={true}
-                 buttonText='Choose images'
-                 onChange={this.onSelect}
-                 imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                 maxFileSize={5242880}
-                 />
-
-
+            <div>
+                <input
+                    name="profile-pics"
+                    type="file"
+                    multiple={true}
+                    accept="image/*"
+                    id="profile-pics"
+                    onChange={(event) => this.handleOnChange(event)} />
+                    className="form-control"
+                  />
+                </div>
               <button type="submit"> Upload Profile </button>
           </form>
+
         </div>
       )
     }

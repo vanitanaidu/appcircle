@@ -7,7 +7,7 @@ import App from './App.js'
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <BrowserRouter>
-      <App />
+      <App/>
     </BrowserRouter>,
 
     document.getElementById('root'),

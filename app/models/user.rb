@@ -9,12 +9,6 @@ class User < ApplicationRecord
   def as_json(_opts = {})
     {
       id: id,
-      name: name,
-      about_me: about_me,
-      interests: interests,
-      past_jobs: past_jobs,
-      fav_movies: fav_movies,
-      fav_food: fav_food,
       errors: errors,
       profile_pics: photos.map do |x|
         {
