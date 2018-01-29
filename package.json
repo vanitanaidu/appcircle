@@ -1,21 +1,19 @@
 {
   "dependencies": {
-    "@rails/webpacker": "^3.1.1",
+    "@rails/webpacker": "^3.2.1",
     "babel-preset-react": "^6.24.1",
     "coffeescript": "1.12.7",
+    "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-images-upload": "^1.1.1",
-    "react-router-dom": "^4.2.2"
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "redux": "^3.7.2"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.9.7"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "webpack-dev-server": "^2.11.1"
   }
 }

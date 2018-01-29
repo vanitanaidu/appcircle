@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './user_form.css';
+
 import UserDetails from './UserDetails';
+import Users from './index'
 
 class AddUserForm extends Component {
   constructor(props) {
@@ -73,8 +74,8 @@ handleOnChange = (event) => {
                   type="text"
                   name="name"
                   onChange={(event) => this.handleOnChange(event)} />
-                  // if you want to call `onChange={this.handleOnChange}``, you have bind it to `this` at the top. Else the syntax would be .. onChange={(event) => this.handleOnChange(event)}
             </div>
+            /* if you want to call `onChange={this.handleOnChange}``, you have bind it to `this` at the top. Else the syntax would be .. onChange={(event) => this.handleOnChange(event)} */
 
             <div>
               <div>
@@ -168,18 +169,17 @@ handleOnChange = (event) => {
 
             <div>
                 <input
-                    name="profile-pics"
+                    name="profile_pics"
                     type="file"
                     multiple={true}
                     accept="image/*"
-                    id="profile-pics"
+                    id="profile_pics"
                     onChange={(event) => this.handleOnChange(event)} />
                     className="form-control"
                   />
                 </div>
               <button type="submit"> Upload Profile </button>
           </form>
-
         </div>
       )
     }
