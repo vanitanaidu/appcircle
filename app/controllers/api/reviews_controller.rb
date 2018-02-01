@@ -1,4 +1,4 @@
-class ReviewsController < ApplicationController
+class Api::ReviewsController < ApplicationController
   before_action :set_user, only: [:index, :create, :destroy]
 
   def index
@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    
+
     @review = @user.reviews.build(review_params)
 
     if @review

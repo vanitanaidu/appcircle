@@ -1,42 +1,54 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from '.../actions'; // when u don't specify a file inside a folder and just call the folder name, it means you are calling the index.js file
 import { Link, Route } from 'react-router-dom';
+import _ from 'lodash';
+
+import { fetchUsers } from '../../actions'; // when u don't specify a file inside a folder and just call the folder name, it means you are calling the index.js file
 import AddUserForm from './AddUserForm';
 import UserDetails from './UserDetails';
 
 class Users extends Component {
 
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      users: [],
-    }
+  componentDidMount() {
+      this.props.fetchUsers()
   }
+
+
+renderUsers() {
+
+  return _.map(this.props.users, user => {
+      debugger
+        return (
+
+            <li>
+              {user.name}
+            </li>
+
+        )
+    })
+}
+
 
 // delete this part later if you don't need it
   render() {
+
     return (
       <div>
-      Users
+        <h2> Users </h2>
+        <ul>
+          {this.renderUsers()}
+        </ul>
       </div>
     )
   }
 
-  //until her
+  //until here
 
 
 //
 //   just uncomment later and your app will work
 //
-//   componentDidMount() {
-//       fetch('/users')
-//     .then(response => response.json())
-//     .then(users => this.setState({
-//       users
-//     }))
-//   }
+
 //
 //   addUser = (user) => {
 //     this.setState({
@@ -80,7 +92,7 @@ class Users extends Component {
 //     </div>
 //   )
 //  }
-// }
+ }
 
 
 
@@ -88,11 +100,14 @@ class Users extends Component {
 
 
 
+function mapStateToProps(state) {
+  return  { users: state.users }
+}
 
 
 
 
-
-export default Users
+export default connect(mapStateToProps, { fetchUsers }) (Users);
+//{ fetchUsers } is basically es6 for { fetchUsers: fetchUsers } and writing it either way is short cut for having to write out the function mapDispatchToProps.
 // this page is your index page that renders all the users.
 //so basically when a user clicks on the link 'users', he/she gets directed to this page.

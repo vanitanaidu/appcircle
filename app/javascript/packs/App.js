@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link, Route } from 'react-router-dom'
+import { Link, Route, Switch } from 'react-router-dom'
+
 
 import Home from './components/home/home'
 import Users from './components/users/index'
 import UserDetails from './components/users/UserDetails'
+import errorPage from './components/home/error'
 
 const App = () => (
   <div>
@@ -14,9 +16,12 @@ const App = () => (
 
     </nav>
     <div>
+    <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/users" component={Users} />
       <Route path="/users/:id" component={UserDetails} />
+      <Route component={errorPage} />
+    </Switch>
     </div>
   </div>
 )

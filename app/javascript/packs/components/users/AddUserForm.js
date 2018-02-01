@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import UserDetails from './UserDetails';
-import Users from './index'
+import Users from './index';
 
 class AddUserForm extends Component {
   constructor(props) {
