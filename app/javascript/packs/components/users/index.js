@@ -7,40 +7,62 @@ import { fetchUsers } from '../../actions'; // when u don't specify a file insid
 import AddUserForm from './AddUserForm';
 import UserDetails from './UserDetails';
 
+
 class Users extends Component {
 
-  componentDidMount() {
-      this.props.fetchUsers()
+  componentDidMount = () => {
+    this.props.fetchUsers()
   }
 
+  // renderUsers = () => {
+  //   return _.map(this.props.users, user => {
+  //     return (
+  //         <li>
+  //           {user.name}
+  //         </li>
+  //     )
+  //   })
+  // }
 
-renderUsers() {
-
-  return _.map(this.props.users, user => {
-      debugger
-        return (
-
-            <li>
-              {user.name}
-            </li>
-
-        )
-    })
-}
-
-
-// delete this part later if you don't need it
   render() {
-
     return (
       <div>
         <h2> Users </h2>
-        <ul>
-          {this.renderUsers()}
-        </ul>
+
       </div>
     )
+
   }
+}
+
+function mapStateToProps(state) {
+  return { users: state.users }
+}
+
+
+ export default connect(mapStateToProps, { fetchUsers }) (Users);
+//{ fetchUsers } is basically es6 for { fetchUsers: fetchUsers } and writing it either way is short cut for having to write out the function mapDispatchToProps.
+// this page is your index page that renders all the users.
+//so basically when a user clicks on the link 'users', he/she gets directed to this page.
+
+
+
+
+
+
+
+// delete this part later if you don't need it
+  // render() {
+  //   console.log("render")
+  //   return (
+  //     <div>
+  //       <h2> Users </h2>
+  //       <ul>
+  //         {this.renderUsers()}
+  //       </ul>
+  //     </div>
+  //   )
+  // }
 
   //until here
 
@@ -92,22 +114,8 @@ renderUsers() {
 //     </div>
 //   )
 //  }
- }
+
 
 
 
 // all the way this here
-
-
-
-function mapStateToProps(state) {
-  return  { users: state.users }
-}
-
-
-
-
-export default connect(mapStateToProps, { fetchUsers }) (Users);
-//{ fetchUsers } is basically es6 for { fetchUsers: fetchUsers } and writing it either way is short cut for having to write out the function mapDispatchToProps.
-// this page is your index page that renders all the users.
-//so basically when a user clicks on the link 'users', he/she gets directed to this page.

@@ -1,5 +1,6 @@
 
 export function fetchUsers() {
+console.log(" action")
   return (dispatch) => {
     dispatch({ type: 'FETCH_USERS' });
     return fetch('/api/users')

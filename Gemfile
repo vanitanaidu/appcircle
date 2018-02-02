@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
 gem 'webpacker', '~> 3.0'
 #use webpacker to compile all assets
 
@@ -29,8 +30,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

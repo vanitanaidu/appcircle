@@ -20,14 +20,14 @@ const history = createHistory()
 
 const middleware = routerMiddleware(history)
 
-const Thunk = thunk
+const useThunk = thunk
 
 const store = createStore(
   combineReducers({
     users: UsersReducer,
     router: routerReducer
   }),
-  applyMiddleware(middleware, thunk)
+  applyMiddleware(middleware, useThunk)
 )
 
 
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
-        <App/>
+        <App />
       </BrowserRouter>
     </Provider>,
 

@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import { fetchUsers } from '../actions';
 
-export default function usersReducer(state = {}, action) {
+export default function usersReducer(state = [], action) {
+  console.log("reducer")
   switch (action.type) {
   case 'FETCH_USERS':
     return Object.assign({}, state, {users: action.payload})
