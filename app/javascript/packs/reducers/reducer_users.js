@@ -5,6 +5,7 @@ export default function usersReducer(state = [], action) {
   console.log("reducer")
   switch (action.type) {
   case 'FETCH_USERS':
+  console.log(action.payload)
     return Object.assign({}, state, {users: action.payload})
   default:
     return state;

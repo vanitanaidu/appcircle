@@ -12,11 +12,10 @@ import { Route } from 'react-router'
 import thunk from 'redux-thunk';
 
 import UsersReducer from './reducers/reducer_users';
-
+import FormReducer from './reducers/reducer_form'
 import App from './App'
 
 const history = createHistory()
-
 
 const middleware = routerMiddleware(history)
 
@@ -25,6 +24,7 @@ const useThunk = thunk
 const store = createStore(
   combineReducers({
     users: UsersReducer,
+    form: FormReducer,
     router: routerReducer
   }),
   applyMiddleware(middleware, useThunk)

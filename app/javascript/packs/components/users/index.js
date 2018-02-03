@@ -9,25 +9,54 @@ import UserDetails from './UserDetails';
 
 
 class Users extends Component {
+  // constructor(props) {
+  //   super(props)
+  //
+  //   this.state = {
+  //     allUsers: [],
+  //
+  //   }
+  // }
 
   componentDidMount = () => {
     this.props.fetchUsers()
+    console.log("component did mount")
   }
 
-  // renderUsers = () => {
-  //   return _.map(this.props.users, user => {
-  //     return (
-  //         <li>
-  //           {user.name}
-  //         </li>
-  //     )
-  //   })
-  // }
+  renderUsers = () => {
+console.log("renderUsers")
+    return _.map(this.props.users, user => {
+      return (
+          <li>
+            {user.name}
+          </li>
+      )
+    })
+  }
 
+  // addUser = (user) => {
+  //    this.setState({
+  //       // allUsers: this.state.allUsers.concat(user)  // or you could also do `users: [this.state.users, ...user],`
+  //       allUsers: [...this.state.allUsers, user],
+  //    })
+
+
+    //  , () => {
+     //
+    //    this.props.history.replace(`/users/${user.name}`)// this might need to change
+    //  })
+  //  }
+
+// <AddUserForm addUser={this.addUser.bind(this)} />
   render() {
+
     return (
+
       <div>
         <h2> Users </h2>
+        <ul>
+          {this.renderUsers()}
+        </ul>
 
       </div>
     )
@@ -36,7 +65,7 @@ class Users extends Component {
 }
 
 function mapStateToProps(state) {
-  return { users: state.users }
+  return { users: state.users.users }
 }
 
 
@@ -72,14 +101,7 @@ function mapStateToProps(state) {
 //
 
 //
-//   addUser = (user) => {
-//     this.setState({
-//        users: this.state.users.concat(user)  // or you could also do `users: [this.state.users, ...user],`
-//     }, () => {
 //
-//       this.props.history.replace(`/users/${user.name}`)// this might need to change
-//     })
-//   }
 //
 //   render() {
 //
