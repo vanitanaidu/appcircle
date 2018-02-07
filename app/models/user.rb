@@ -11,11 +11,14 @@ class User < ApplicationRecord
       id: id,
       errors: errors,
       name: name,
+      age: age,
       about_me: about_me,
       interests: interests,
       past_jobs: past_jobs,
       fav_movies:fav_movies,
       fav_food: fav_food,
+      state: state,
+      city: city,
 
       profile_pics: photos.map do |x|
         {

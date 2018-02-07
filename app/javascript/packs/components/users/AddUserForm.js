@@ -1,32 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 //
 // import UserDetails from './UserDetails';
-import Users from './index';
-
+// import Users from './index';
+import { addUser } from '../../actions/add_user_action'
 
 
 class AddUserForm extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      profile_pics: "",
-      name: "",
-      about_me: "",
-      past_jobs: "",
-      interests: "",
-      fav_movies: "",
-      fav_food: "",
-      friend_id: "",
-      age: "",
-      state: "",
-      city: "",
-      languages: "",
-      schools: "",
-
-    }
-    this.state = this.initialState
-  }
+  // constructor(props) {
+  //   super(props)
+  //
+  //   this.state = {
+  //     profile_pics: "",
+  //     name: "",
+  //     about_me: "",
+  //     past_jobs: "",
+  //     interests: "",
+  //     fav_movies: "",
+  //     fav_food: "",
+  //     friend_id: "",
+  //     age: "",
+  //     state: "",
+  //     city: "",
+  //     languages: "",
+  //     schools: "",
+  //
+  //   }
+  // }
 
   // handlePhotoChange = (e) => {
   //   this.setState({
@@ -44,7 +44,7 @@ class AddUserForm extends Component {
 
 handleOnSubmit = (event) => {
   event.preventDefault()
-  this.props.addUser(this.state)
+      this.props.newUser(this.state)
 
 
   // this.props.store.dispatch(addUserDetail(this.state)) // addUserDetail here is the action and this.state is state. Dispatch is called on the state and action to persist changees in the state
@@ -72,7 +72,7 @@ handleOnSubmit = (event) => {
       return (
         <div>
           <h3 className="header"> Add New User </h3>
-          <form className="new_video_form" onSubmit={(event) => this.handleOnSubmit(event)}>
+          <form className="new_video_form" onSubmit={this.handleOnSubmit(event).bind(this)}>
 
             <div>
               <div>
@@ -194,5 +194,16 @@ handleOnSubmit = (event) => {
 
 }
 
+function mapStateToProps(state) {
+  return { newUser: state.users.users } // the last user in state.
+}
 
-export default AddUserForm;
+function mapDispatch
+
+ export default connect(mapStateToProps, { addUser }) (AddUserForm);
+
+
+
+// have an action for the form. The action is gonna be in charge of adding users to the redux state.
+// After that, we send our action to the reducer.Then we will use mapStateToProps and mapDispatchToProps
+// to access the results from the reducer

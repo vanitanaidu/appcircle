@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 
-
 import Home from './components/home/home';
 import Users from './components/users/index';
 import UserDetails from './components/users/UserDetails';

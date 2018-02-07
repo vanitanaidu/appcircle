@@ -24,11 +24,14 @@ class Users extends Component {
   }
 
   renderUsers = () => {
-console.log("renderUsers")
     return _.map(this.props.users, user => {
       return (
-          <li>
-            {user.name}
+          <li key={user.id} >
+            <div> {user.name} </div>
+            <div> About me: {user.about_me} </div>
+            <div> Interests: {user.interests} </div>
+            <div> State/City: {user.state} - {user.city}</div>
+            <br/>
           </li>
       )
     })
@@ -39,13 +42,11 @@ console.log("renderUsers")
   //       // allUsers: this.state.allUsers.concat(user)  // or you could also do `users: [this.state.users, ...user],`
   //       allUsers: [...this.state.allUsers, user],
   //    })
-
-
-    //  , () => {
-     //
-    //    this.props.history.replace(`/users/${user.name}`)// this might need to change
-    //  })
-  //  }
+  //   //  , () => {
+  //    //
+  //   //    this.props.history.replace(`/users/${user.name}`)// this might need to change
+  //   //  })
+  // }
 
 // <AddUserForm addUser={this.addUser.bind(this)} />
   render() {
@@ -53,10 +54,12 @@ console.log("renderUsers")
     return (
 
       <div>
+
         <h2> Users </h2>
         <ul>
           {this.renderUsers()}
         </ul>
+
 
       </div>
     )
