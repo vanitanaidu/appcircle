@@ -1,3 +1,4 @@
+
 export function fetchUser(id) {
   return (dispatch) => {
     dispatch({ type: 'FETCH_USER' });

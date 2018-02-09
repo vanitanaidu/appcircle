@@ -25,6 +25,7 @@ const store = createStore(
   combineReducers({
     users: UsersReducer,
     addUser: addUserReducer,
+    //how do I add my showreducer here?
     router: routerReducer
   }),
   applyMiddleware(middleware, useThunk)

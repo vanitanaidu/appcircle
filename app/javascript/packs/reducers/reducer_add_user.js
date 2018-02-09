@@ -1,9 +1,10 @@
 import { addUser } from '../actions';
 
-export default function addUserReducer(state = {users: []}, action) {
+const INITIAL_STATE = {users: []}
+
+export default function addUserReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
   case 'ADD_USER':
-  console.log("action payload is", action.payload)
     return Object.assign({}, state, {users: [...state.users, action.payload]})
   default:
     return state;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -6,6 +6,10 @@ import { addUser } from '../../actions/add_user_action'
 
 
 class AddUserForm extends Component {
+
+  static contextTypes = {
+    router: PropTypes.object
+  }
 
   handleOnChange = (event) => {
     const { name, value } = event.target //the above line of code is the same as:
@@ -17,25 +21,9 @@ class AddUserForm extends Component {
 handleOnSubmit = (event) => {
   event.preventDefault()
       this.props.addUser(this.state)
-
-
-  // this.props.store.dispatch(addUserDetail(this.state)) // addUserDetail here is the action and this.state is state. Dispatch is called on the state and action to persist changees in the state
-//   const userData = Object.assign({}, this.state)
-//   //  debugger
-//   const request = {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       user: userData
-//     })
-//   }
-//
-//   fetch('/MyProfilePage', request)
-//   .then(response => response.json())
-//   .then(user => this.props.addUser(user))
-//
+      .then(() => {
+        this.context.router.push('/')
+      })
  }
 
 

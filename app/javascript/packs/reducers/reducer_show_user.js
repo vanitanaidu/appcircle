@@ -1,9 +1,12 @@
 import { fetchUser } from '../actions';
 
-export default function showUserReducer(state = {users: []}, action) {
+const INITIAL_STATE = {users: []}
+
+export default function showUserReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
   case 'FETCH_USER':
-    return { ...state, user: action.payload }
+
+    return Object.assign({}, state, {users: [...state.users, action.payload]})
   default:
     return state;
   }
