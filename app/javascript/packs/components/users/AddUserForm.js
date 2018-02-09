@@ -1,39 +1,11 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-//
-// import UserDetails from './UserDetails';
-// import Users from './index';
+
 import { addUser } from '../../actions/add_user_action'
 
 
 class AddUserForm extends Component {
-  // constructor(props) {
-  //   super(props)
-  //
-  //   this.state = {
-  //     profile_pics: "",
-  //     name: "",
-  //     about_me: "",
-  //     past_jobs: "",
-  //     interests: "",
-  //     fav_movies: "",
-  //     fav_food: "",
-  //     friend_id: "",
-  //     age: "",
-  //     state: "",
-  //     city: "",
-  //     languages: "",
-  //     schools: "",
-  //
-  //   }
-  // }
-
-  // handlePhotoChange = (e) => {
-  //   this.setState({
-  //     profilepics: [...this.state.profilepics, e.target.value]
-  //   })
-  // }
-
 
   handleOnChange = (event) => {
     const { name, value } = event.target //the above line of code is the same as:
@@ -44,7 +16,7 @@ class AddUserForm extends Component {
 
 handleOnSubmit = (event) => {
   event.preventDefault()
-      this.props.newUser(this.state)
+      this.props.addUser(this.state)
 
 
   // this.props.store.dispatch(addUserDetail(this.state)) // addUserDetail here is the action and this.state is state. Dispatch is called on the state and action to persist changees in the state
@@ -72,7 +44,7 @@ handleOnSubmit = (event) => {
       return (
         <div>
           <h3 className="header"> Add New User </h3>
-          <form className="new_video_form" onSubmit={this.handleOnSubmit(event).bind(this)}>
+          <form className="new_video_form" onSubmit={this.handleOnSubmit}>
 
             <div>
               <div>
@@ -195,12 +167,14 @@ handleOnSubmit = (event) => {
 }
 
 function mapStateToProps(state) {
-  return { newUser: state.users.users } // the last user in state.
+  return { addUser: state.users.users } // the last user in state.
 }
 
-function mapDispatch
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({addUser: addUser}, dispatch)
+}
 
- export default connect(mapStateToProps, { addUser }) (AddUserForm);
+ export default connect(mapStateToProps, mapDispatchToProps)(AddUserForm);
 
 
 

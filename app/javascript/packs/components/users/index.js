@@ -5,62 +5,43 @@ import _ from 'lodash';
 
 import { fetchUsers } from '../../actions'; // when u don't specify a file inside a folder and just call the folder name, it means you are calling the index.js file
 import AddUserForm from './AddUserForm';
-import UserDetails from './UserDetails';
+
 
 
 class Users extends Component {
-  // constructor(props) {
-  //   super(props)
-  //
-  //   this.state = {
-  //     allUsers: [],
-  //
-  //   }
-  // }
 
   componentDidMount = () => {
     this.props.fetchUsers()
-    console.log("component did mount")
   }
+
+handleClick = (event) => {
+  debugger
+}
 
   renderUsers = () => {
     return _.map(this.props.users, user => {
       return (
-          <li key={user.id} >
-            <div> {user.name} </div>
-            <div> About me: {user.about_me} </div>
-            <div> Interests: {user.interests} </div>
-            <div> State/City: {user.state} - {user.city}</div>
-            <br/>
-          </li>
+
+        <li key={user.id} >
+          <div> {user.name} </div>
+          <div> About me: {user.about_me} </div>
+          <div> Interests: {user.interests} </div>
+          <div> State/City: {user.state} - {user.city}</div>
+          <br/>
+        </li>
+
       )
     })
   }
 
-  // addUser = (user) => {
-  //    this.setState({
-  //       // allUsers: this.state.allUsers.concat(user)  // or you could also do `users: [this.state.users, ...user],`
-  //       allUsers: [...this.state.allUsers, user],
-  //    })
-  //   //  , () => {
-  //    //
-  //   //    this.props.history.replace(`/users/${user.name}`)// this might need to change
-  //   //  })
-  // }
-
-// <AddUserForm addUser={this.addUser.bind(this)} />
   render() {
 
     return (
-
       <div>
-
         <h2> Users </h2>
-        <ul>
+        <ul onClick={this.handleClick} >
           {this.renderUsers()}
         </ul>
-
-
       </div>
     )
 
@@ -82,29 +63,6 @@ function mapStateToProps(state) {
 
 
 
-
-// delete this part later if you don't need it
-  // render() {
-  //   console.log("render")
-  //   return (
-  //     <div>
-  //       <h2> Users </h2>
-  //       <ul>
-  //         {this.renderUsers()}
-  //       </ul>
-  //     </div>
-  //   )
-  // }
-
-  //until here
-
-
-//
-//   just uncomment later and your app will work
-//
-
-//
-//
 //
 //   render() {
 //

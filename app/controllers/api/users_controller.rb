@@ -16,7 +16,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-      render json: @user, status: 200
+    render json: @user, status: 200
   end
 
   def update
@@ -54,7 +54,7 @@ class Api::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(
+    params.require(:bob).permit(
     [
       :id,
       :name,
