@@ -8,7 +8,7 @@ export function addUser(user) {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ bob: user })
+      body: JSON.stringify({ user: user })
     })
       .then(response => response.json())
       .then(newUser => dispatch({ type: 'ADD_USER', payload: newUser }));

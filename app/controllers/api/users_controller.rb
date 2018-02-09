@@ -54,7 +54,7 @@ class Api::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:bob).permit(
+    params.require(:user).permit(
     [
       :id,
       :name,

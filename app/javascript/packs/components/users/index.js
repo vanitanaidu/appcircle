@@ -23,11 +23,13 @@ handleClick = (event) => {
       return (
 
         <li key={user.id} >
-          <div> {user.name} </div>
-          <div> About me: {user.about_me} </div>
-          <div> Interests: {user.interests} </div>
-          <div> State/City: {user.state} - {user.city}</div>
-          <br/>
+          <Link className="user-link" to= {"users/" + user.id}>
+            <div> {user.name} </div>
+            <div> About me: {user.about_me} </div>
+            <div> Interests: {user.interests} </div>
+            <div> State/City: {user.state} - {user.city}</div>
+            <br/>
+          </Link>
         </li>
 
       )
@@ -39,7 +41,7 @@ handleClick = (event) => {
     return (
       <div>
         <h2> Users </h2>
-        <ul onClick={this.handleClick} >
+        <ul>
           {this.renderUsers()}
         </ul>
       </div>

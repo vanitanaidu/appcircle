@@ -1,6 +1,6 @@
 import { addUser } from '../actions';
 
-export default function addUserReducer(state = {users:[]}, action) {
+export default function addUserReducer(state = {users: []}, action) {
   switch (action.type) {
   case 'ADD_USER':
   console.log("action payload is", action.payload)

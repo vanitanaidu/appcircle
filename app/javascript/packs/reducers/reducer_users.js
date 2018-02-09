@@ -1,6 +1,8 @@
 // import _ from 'lodash';
 import { fetchUsers } from '../actions';
 
+
+
 export default function usersReducer(state = {users: []}, action) {
   console.log("reducer")
   switch (action.type) {

@@ -1,11 +1,9 @@
-// import { fetchUsers } from '../actions';
+import { fetchUser } from '../actions';
 
 export default function showUserReducer(state = {users: []}, action) {
-  console.log("reducer")
   switch (action.type) {
   case 'FETCH_USER':
-  console.log(action.payload)
-    return { ...state, {action.payload})
+    return { ...state, user: action.payload }
   default:
     return state;
   }
