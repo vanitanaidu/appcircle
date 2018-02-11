@@ -11,7 +11,7 @@ export function addUser(user) {
       body: JSON.stringify({ user: user })
     })
       .then(response => response.json())
-      .then(newUser => dispatch({ type: 'ADD_USER', payload: newUser }));
+      .then(newUser => dispatch({ type: 'ADD_USER', payload: newUser}));
   };
 }
 //

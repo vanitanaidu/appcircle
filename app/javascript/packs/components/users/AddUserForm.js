@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router'
 
 import { addUser } from '../../actions/add_user_action'
 
@@ -19,6 +20,7 @@ class AddUserForm extends Component {
   }
 
 handleOnSubmit = (event) => {
+
   event.preventDefault()
       this.props.addUser(this.state)
       .then(() => {
@@ -32,7 +34,7 @@ handleOnSubmit = (event) => {
       return (
         <div>
           <h3 className="header"> Add New User </h3>
-          <form className="new_video_form" onSubmit={this.handleOnSubmit}>
+          <form className="new_form" onSubmit={this.handleOnSubmit}>
 
             <div>
               <div>

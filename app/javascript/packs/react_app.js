@@ -8,7 +8,7 @@ import createHistory from 'history/createBrowserHistory'
 
 import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
 import { BrowserRouter } from 'react-router-dom'
-import { Route } from 'react-router'
+import { Route, browserHistory } from 'react-router'
 import thunk from 'redux-thunk';
 
 import UsersReducer from './reducers/reducer_users';
@@ -35,7 +35,7 @@ const store = createStore(
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter history={browserHistory}>
         <App />
       </BrowserRouter>
     </Provider>,

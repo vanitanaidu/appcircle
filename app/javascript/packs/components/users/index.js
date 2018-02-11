@@ -15,7 +15,7 @@ class Users extends Component {
   }
 
 handleClick = (event) => {
-  debugger
+
 }
 
   renderUsers = () => {
@@ -50,7 +50,7 @@ handleClick = (event) => {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   return { users: state.users.users }
 }
 
