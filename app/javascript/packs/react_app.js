@@ -10,6 +10,7 @@ import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-ro
 import { BrowserRouter } from 'react-router-dom';
 import { Route } from 'react-router';
 import thunk from 'redux-thunk';
+import Bootstrap from 'bootstrap/dist/css/bootstrap.css'
 
 import usersReducer from './reducers/reducer_users';
 import addUserReducer from './reducers/reducer_add_user';

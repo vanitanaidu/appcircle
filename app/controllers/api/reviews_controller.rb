@@ -22,7 +22,7 @@ class Api::ReviewsController < ApplicationController
     else
       render json: {
         errors: {
-          messages: { revew: "review can't be found" }
+          messages: { review: "review can't be found" }
         }
       }, status: 404
     end
@@ -50,7 +50,11 @@ class Api::ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:content)
+    params.require(:review).permit(
+      [
+        :content
+      ]
+    )
   end
 
 end

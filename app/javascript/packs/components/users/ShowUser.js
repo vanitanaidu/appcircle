@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import { Button } from 'react-bootstrap';
 
 import { fetchUser } from '../../actions/show_user_action';
 import { deleteUser } from '../../actions/delete_user_action';
 import { updateUser } from '../../actions/update_user_action';
 
 import Comments from '../comments/index';
-import AddCommentForm from '../comments/AddCommentForm'
+import AddCommentForm from '../comments/AddCommentForm';
 
 class ShowUser extends Component {
   constructor(props) {
@@ -110,12 +111,12 @@ class ShowUser extends Component {
             Delete User
          </button>
 
-         <button className="btn btn-danger pull-xs-right" onClick={this.handleEdit.bind(this)}>
+         <Button bsStyle='sucess' className="btn btn-danger pull-xs-right" onClick={this.handleEdit.bind(this)}>
           {this.state.editable ? 'Submit' : 'Edit'}
-         </button>
+         </Button>
 
          <Comments userId={match.params.id} users={this.props.users}/>
-         <AddComment userId={match.params.id}/>
+         <AddCommentForm userId={match.params.id}/>
 
 
        </div>
