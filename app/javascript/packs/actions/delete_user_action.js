@@ -6,9 +6,8 @@ export function deleteUser(id) {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-      },
+      }
     })
-      .then(response => response.json())
       .then(id => dispatch({ type: 'DELETE_USER', payload: id }));
   };
 }

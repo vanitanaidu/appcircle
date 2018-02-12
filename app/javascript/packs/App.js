@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 
-import Home from './components/home/home';
 import Users from './components/users/index';
-import errorPage from './components/home/error';
+import errorPage from './components/error/error';
 import AddUserForm from './components/users/AddUserForm';
 import ShowUser from './components/users/ShowUser';
 

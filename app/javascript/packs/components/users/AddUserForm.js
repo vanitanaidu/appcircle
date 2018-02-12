@@ -1,16 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { browserHistory } from 'react-router'
 
 import { addUser } from '../../actions/add_user_action'
 
 
 class AddUserForm extends Component {
-
-  static contextTypes = {
-    router: PropTypes.object
-  }
 
   handleOnChange = (event) => {
     const { name, value } = event.target //the above line of code is the same as:
@@ -19,141 +14,136 @@ class AddUserForm extends Component {
     })
   }
 
-handleOnSubmit = (event) => {
-
-  event.preventDefault()
+  handleOnSubmit = (event) => {
+    event.preventDefault()
       this.props.addUser(this.state)
-      .then(() => {
-        this.context.router.push('/')
-      })
- }
+      this.props.history.push('/')
+  }
 
+  render() {
 
-    render() {
+    return (
+      <div>
+        <h3 className="header"> Add New User </h3>
+        <form className="display_form" onSubmit={this.handleOnSubmit}>
 
-      return (
-        <div>
-          <h3 className="header"> Add New User </h3>
-          <form className="new_form" onSubmit={this.handleOnSubmit}>
-
+          <div>
             <div>
-              <div>
-                <label htmlFor="name"> Name </label>
-              </div>
-                <input
-                  type="text"
-                  name="name"
-                  onChange={(event) => this.handleOnChange(event)} />
+              <label htmlFor="name"> Name </label>
             </div>
+              <input
+                type="text"
+                name="name"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
             /* if you want to call `onChange={this.handleOnChange}``, you have bind it to `this` at the top. Else the syntax would be .. onChange={(event) => this.handleOnChange(event)} */
 
+          <div>
             <div>
-              <div>
-                <label htmlFor="about_me"> About Me </label>
-              </div>
-                <textarea
-                  name="about_me"
-                  onChange={(event) => this.handleOnChange(event)} />
+              <label htmlFor="about_me"> About Me </label>
             </div>
+              <textarea
+                name="about_me"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
 
+          <div>
             <div>
-              <div>
-                <label htmlFor="age"> Age </label>
-              </div>
-                <textarea
-                  name="age"
-                  onChange={(event) => this.handleOnChange(event)} />
+              <label htmlFor="age"> Age </label>
             </div>
+              <textarea
+                name="age"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
 
+          <div>
             <div>
-              <div>
-                <label htmlFor="past_jobs"> Past Jobs </label>
-              </div>
-                <textarea
-                  name="past_jobs"
-                  onChange={(event) => this.handleOnChange(event)} />
+              <label htmlFor="past_jobs"> Past Jobs </label>
             </div>
+              <textarea
+                name="past_jobs"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
 
+          <div>
             <div>
-              <div>
-                <label htmlFor="interests"> Interests </label>
-              </div>
-                <textarea
-                  name="interests"
-                  onChange={(event) => this.handleOnChange(event)} />
+              <label htmlFor="interests"> Interests </label>
             </div>
+              <textarea
+                name="interests"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
 
+          <div>
             <div>
-              <div>
-                <label htmlFor="schools"> Schools </label>
-              </div>
-                <textarea
-                  name="schools"
-                  onChange={(event) => this.handleOnChange(event)} />
+              <label htmlFor="schools"> Schools </label>
             </div>
+              <textarea
+                name="schools"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
 
+          <div>
             <div>
-              <div>
-                <label htmlFor="languages"> Languages </label>
-              </div>
-                <textarea
-                  name="languages"
-                  onChange={(event) => this.handleOnChange(event)} />
+              <label htmlFor="languages"> Languages </label>
             </div>
+              <textarea
+                name="languages"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
 
+          <div>
             <div>
-              <div>
-                <label htmlFor="fav_movies"> Favourite Movies </label>
-              </div>
-                <textarea
-                  name="fav_movies"
-                  onChange={(event) => this.handleOnChange(event)} />
+              <label htmlFor="fav_movies"> Favourite Movies </label>
             </div>
+              <textarea
+                name="fav_movies"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
 
+          <div>
             <div>
-              <div>
-                <label htmlFor="fav_food"> Favourite Food </label>
-              </div>
-                <textarea
-                  name="fav_food"
-                  onChange={(event) => this.handleOnChange(event)} />
+              <label htmlFor="fav_food"> Favourite Food </label>
             </div>
+              <textarea
+                name="fav_food"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
 
+          <div>
             <div>
-              <div>
-                <label htmlFor="state"> State </label>
-              </div>
-                <textarea
-                  name="state"
-                  onChange={(event) => this.handleOnChange(event)} />
+              <label htmlFor="state"> State </label>
             </div>
+              <textarea
+                name="state"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
 
+          <div>
             <div>
-              <div>
-                <label htmlFor="city"> City </label>
-              </div>
-                <textarea
-                  name="city"
-                  onChange={(event) => this.handleOnChange(event)} />
+              <label htmlFor="city"> City </label>
             </div>
+              <textarea
+                name="city"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
 
-            <div>
-                <input
-                    name="profile_pics"
-                    type="file"
-                    multiple={true}
-                    accept="image/*"
-                    id="profile_pics"
-                    onChange={(event) => this.handleOnChange(event)} />
-                    className="form-control"
-                  />
-                </div>
-              <button type="submit"> Save My Profile </button>
-          </form>
-        </div>
+          <div>
+              <input
+                  name="profile_pics"
+                  type="file"
+                  multiple={true}
+                  accept="image/*"
+                  id="profile_pics"
+                  onChange={(event) => this.handleOnChange(event)} />
+                  className="form-control"
+                />
+              </div>
+            <button type="submit"> Save My Profile </button>
+        </form>
+      </div>
       )
     }
-
 }
 
 function mapStateToProps(state) {
@@ -164,7 +154,7 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({addUser: addUser}, dispatch)
 }
 
- export default connect(mapStateToProps, mapDispatchToProps)(AddUserForm);
+export default connect(mapStateToProps, mapDispatchToProps)(AddUserForm);
 
 
 
