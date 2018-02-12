@@ -6,7 +6,6 @@ class Api::ReviewsController < ApplicationController
   end
 
   def create
-
     @review = @user.reviews.build(review_params)
 
     if @review
@@ -39,6 +38,7 @@ class Api::ReviewsController < ApplicationController
           messages: { user: "user can't be found" }
         }
       }, status: 404
+    end
   end
 
   def render_errors

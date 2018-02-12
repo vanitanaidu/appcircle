@@ -1,5 +1,5 @@
 
-3.times do
+13.times do
     user = User.create(
     name: Faker::Science.scientist,
     about_me: Faker::Seinfeld.quote,

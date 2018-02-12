@@ -14,10 +14,6 @@ class Users extends Component {
     this.props.fetchUsers()
   }
 
-handleClick = (event) => {
-
-}
-
   renderUsers = () => {
     return _.map(this.props.users, user => {
       return (
@@ -41,9 +37,9 @@ handleClick = (event) => {
     return (
       <div>
         <h2> Users </h2>
-        <ul>
-          {this.renderUsers()}
-        </ul>
+          <ul>
+            {this.renderUsers()}
+          </ul>
       </div>
     )
 

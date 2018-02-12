@@ -6,6 +6,8 @@ import errorPage from './components/error/error';
 import AddUserForm from './components/users/AddUserForm';
 import ShowUser from './components/users/ShowUser';
 
+
+
 const App = () => (
   <div>
     <nav className="text-xs-right">
@@ -16,7 +18,7 @@ const App = () => (
 
     <div>
     <Switch>
-      <Route path="/users/new" component={AddUserForm} />
+      <Route path="/users/new" component={AddUserForm} /> // positioning matters
       <Route path="/users/:id" component={ShowUser}/>
       <Route exact path="/" component={Users} />
 

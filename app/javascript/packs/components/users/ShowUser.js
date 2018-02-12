@@ -4,7 +4,10 @@ import _ from 'lodash';
 
 import { fetchUser } from '../../actions/show_user_action';
 import { deleteUser } from '../../actions/delete_user_action';
-import { editUser } from '../../actions/edit_user_action';
+import { updateUser } from '../../actions/update_user_action';
+
+import Comments from '../comments/index';
+import AddCommentForm from '../comments/AddCommentForm'
 
 class ShowUser extends Component {
   constructor(props) {
@@ -47,15 +50,11 @@ class ShowUser extends Component {
         schools: this.refs.schools.value
       }
       this.props.updateUser(user) //this is an action.
-  }
+    }
 
     this.setState({
       editable: !this.state.editable
     })
-
-    // const { id } = this.props.match.params
-    // this.props.editUser(id)
-    // this.props.history.push("/users/new")
   }
 
 
@@ -81,7 +80,7 @@ class ShowUser extends Component {
 
       return (
         <div key={user.id} className="display_form">
-           <h3> Name: {name} </h3>
+           <h2> {name} </h2>
            <h3> Age: {age} </h3>
            <h3> Interest: {interests} </h3>
            <h3> About Me: {about_me} </h3>
@@ -94,7 +93,7 @@ class ShowUser extends Component {
            <h3> Schools I attended: {schools} </h3>
         </div>
       )
-    }
+  }
 
    render() {
     //  this.props.users.map(user => {
@@ -102,16 +101,22 @@ class ShowUser extends Component {
     //     return <div> Loading..... </div>
     //    }
     //  }
-
+      const {match} = this.props
        return (
        <div>
         {this.renderUser()}
+
          <button className="btn btn-danger pull-xs-right" onClick={this.onDeleteClick.bind(this)}>
             Delete User
          </button>
+
          <button className="btn btn-danger pull-xs-right" onClick={this.handleEdit.bind(this)}>
           {this.state.editable ? 'Submit' : 'Edit'}
          </button>
+
+         <Comments userId={match.params.id} users={this.props.users}/>
+         <AddComment userId={match.params.id}/>
+
 
        </div>
      )
