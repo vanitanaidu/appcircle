@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   namespace :api do
 
     resources :users, only: [:index, :create, :show, :update, :destroy] do
-      resources :reviews, only: [:index, :create, :destroy]
+      resources :reviews, only: [:index, :create, :show, :update, :destroy]
+      resources :photos, only: [:index, :create, :show, :update, :destroy]
     end
   end
 

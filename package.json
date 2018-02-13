@@ -2,12 +2,10 @@
   "dependencies": {
     "@rails/webpacker": "^3.2.1",
     "babel-preset-react": "^6.24.1",
-    "bootstrap": "^4.0.0",
     "coffeescript": "1.12.7",
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.2.0",
     "react-images-upload": "^1.1.1",
     "react-redux": "^5.0.6",

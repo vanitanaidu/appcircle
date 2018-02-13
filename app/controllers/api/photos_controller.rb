@@ -1,40 +1,39 @@
-class Api::ReviewsController < ApplicationController
+class Api::PhotosController < ApplicationController
   before_action :set_user, only: [:index, :show, :update, :create, :destroy]
 
   def index
-    render json: @user.reviews, status: 200
+    render json: @user.photos, status: 200
   end
 
   def create
-    @review = @user.reviews.build(review_params)
-
-    if @review
-      render json: @review, status: 201
+    @photo = @user.photos.build(photo_params)
+    if @photo
+      render json: @photo, status: 201
     else
       render_errors
     end
   end
 
   def show
-    render json: @review, status: 200
+    render json: @photo, status: 200
   end
 
   def update
-    if @review.update(review_params)
-      render json: @review, status: 200
+    if @photo.update(photo_params)
+      render json: @photo, status: 200
     else
       render_errors
     end
   end
 
   def destroy
-    @review = @user.reviews.find_by(id: params[:id])
-    if @review
-      @review.destroy
+    @photo = @user.photos.find_by(id: params[:id])
+    if @photo
+      @photo.destroy
     else
       render json: {
         errors: {
-          messages: { review: "review can't be found" }
+          messages: { photo: "photo can't be found" }
         }
       }, status: 404
     end
@@ -56,15 +55,18 @@ class Api::ReviewsController < ApplicationController
   def render_errors
     render json: {
       errors: {
-        messages: @review.errors.messages
+        messages: @photo.errors.messages
       }
     }, status: 422
   end
 
-  def review_params
-    params.require(:review).permit(
+  def photo_params
+    params.require(:photo).permit(
       [
-        :content
+        :profilepic_file_name
+        :profilepic_content_type
+        :profilepic_file_size
+        :profilepic_updated_at
       ]
     )
   end

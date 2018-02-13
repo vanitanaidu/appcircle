@@ -17,16 +17,16 @@ class Users extends Component {
   renderUsers = () => {
     return _.map(this.props.users, user => {
       return (
-
-        <li key={user.id} >
-          <Link className="user-link" to= {"users/" + user.id}>
+        <a key={user.id} >
+          <Link className="list-group-item disabled" to= {"users/" + user.id}>
             <div> {user.name} </div>
             <div> About me: {user.about_me} </div>
             <div> Interests: {user.interests} </div>
             <div> State/City: {user.state} - {user.city}</div>
             <br/>
           </Link>
-        </li>
+        </a>
+
 
       )
     })
@@ -36,10 +36,15 @@ class Users extends Component {
 
     return (
       <div>
-        <h2> Users </h2>
-          <ul>
+        <div className="jumbotron" >
+          <div className="container">
+            <h1> Circle </h1>
+          </div>
+        </div>
+          <div className="container">
             {this.renderUsers()}
-          </ul>
+          </div>
+
       </div>
     )
 

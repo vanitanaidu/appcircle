@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Link, Route } from 'react-router-dom';
 // import _ from 'lodash';
-import { fetchComments } from '../../actions/comments/index';
+import { fetchPics } from '../../actions/pictures/profile_pics';
 
-class Comments extends Component {
+class ProfilePics extends Component {
 
   componentDidMount = () => {
     const id = this.props.userId
-   this.props.fetchComments(id)
+   this.props.fetchPictures(id)
   }
 
-  renderComments = () => {
+  renderPictures = () => {
 
-    return _.map(this.props.comments, comment => {
+    return _.map(this.props.pictures, picture => {
       return (
 
-        <li key={comment.id} >
-            <div> {comment.content} </div>
+        <li key={picture.id} >
+            <div> {picture.content} </div>
             <br/>
         </li>
 
@@ -29,9 +29,9 @@ class Comments extends Component {
 
     return (
       <div>
-        <h2> Comments </h2>
+        <h2> Pictures </h2>
         <ul>
-          {this.renderComments()}
+          {this.renderPictures()}
           </ul>
       </div>
     )
@@ -40,11 +40,11 @@ class Comments extends Component {
 }
 //
 function mapStateToProps(state) {
- return { comments: state.comments.comments }
+ return { pictures: state.pictures.pictures }
 }
 //
 //
-export default connect(mapStateToProps, { fetchComments }) (Comments);
+export default connect(mapStateToProps, { fetchPictures }) (ProfilePics);
 //{ fetchUsers } is basically es6 for { fetchUsers: fetchUsers } and writing it either way is short cut for having to write out the function mapDispatchToProps.
 // this page is your index page that renders all the users.
 //so basically when a user clicks on the link 'users', he/she gets directed to this page.

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import { Button } from 'react-bootstrap';
 
 import { fetchUser } from '../../actions/show_user_action';
 import { deleteUser } from '../../actions/delete_user_action';
@@ -111,13 +110,13 @@ class ShowUser extends Component {
             Delete User
          </button>
 
-         <Button bsStyle='sucess' className="btn btn-danger pull-xs-right" onClick={this.handleEdit.bind(this)}>
+         <button className="btn btn-danger pull-xs-right" onClick={this.handleEdit.bind(this)}>
           {this.state.editable ? 'Submit' : 'Edit'}
-         </Button>
+         </button>
 
-         <Comments userId={match.params.id} users={this.props.users}/>
-         <AddCommentForm userId={match.params.id}/>
-
+         <Comments userId={match.params.id} users={this.props.users} />
+         <AddCommentForm userId={match.params.id} />
+         <ProfilePics userId={match.params.id} />
 
        </div>
      )

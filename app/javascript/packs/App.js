@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
+// import 'bootstrap/dist/css/bootstrap.css'
 
 import Users from './components/users/index';
 import errorPage from './components/error/error';
@@ -10,13 +11,14 @@ import ShowUser from './components/users/ShowUser';
 
 const App = () => (
   <div>
-    <nav className="text-xs-right">
-      <Link to="/">Home</Link>
-      <br/>
-      <Link to="/users/new">Add a New User</Link>
+    <nav className="navbar navbar-default navbar-static-top" id="navbar-bottom">
+      <div className="container" >
+        <Link to="/"className="navbar-brand" id="text">Home</Link>
+        <Link to="/users/new" id="text">Add a New User</Link>
+      </div>
     </nav>
 
-    <div>
+
     <Switch>
       <Route path="/users/new" component={AddUserForm} /> // positioning matters
       <Route path="/users/:id" component={ShowUser}/>
@@ -24,9 +26,9 @@ const App = () => (
 
       <Route component={errorPage} />
     </Switch>
-    </div>
-
   </div>
+
+
 )
 
 export default App

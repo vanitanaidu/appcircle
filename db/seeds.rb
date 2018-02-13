@@ -22,4 +22,12 @@
     review.save
   end
 
+  13.times do
+    photo = Photo.create(
+    profilepic_file_name: Faker::Avatar.image
+    )
+    photo.user = user
+    photo.save
+  end
+
 end
