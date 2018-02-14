@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Link, Route } from 'react-router-dom';
-// import _ from 'lodash';
+import _ from 'lodash';
 import { fetchComments } from '../../actions/comments/index';
 
 class Comments extends Component {
@@ -40,6 +40,7 @@ class Comments extends Component {
 }
 //
 function mapStateToProps(state) {
+  console.log()
  return { comments: state.comments.comments }
 }
 //

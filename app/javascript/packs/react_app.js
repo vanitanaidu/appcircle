@@ -11,10 +11,8 @@ import { BrowserRouter } from 'react-router-dom';
 import { Route } from 'react-router';
 import thunk from 'redux-thunk';
 
-import usersReducer from './reducers/reducer_users';
-import addUserReducer from './reducers/reducer_add_user';
-import updateUserReducer from './reducers/reducer_update_user';
-import commentsReducer from './reducers/comments/reducer_comments';
+import UserReducer from './reducers/reducer_users';
+// import CommentReducer from './reducers/reducer_comments'
 
 import App from './App'
 
@@ -26,10 +24,8 @@ const useThunk = thunk
 
 const store = createStore(
   combineReducers({
-    users: usersReducer,
-    addUser: addUserReducer,
-    //how do I add my showreducer & updatereducer here?
-    comments: commentsReducer,
+    users: UserReducer,
+    comments: UserReducer,
     router: routerReducer
   }),
   applyMiddleware(middleware, useThunk)

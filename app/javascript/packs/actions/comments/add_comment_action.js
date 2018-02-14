@@ -1,7 +1,6 @@
 
-
-
 export function addComment(comment, id) {
+
   return (dispatch) => {
     dispatch({ type: 'ADD_COMMENT' });
     return fetch(`/api/users/${id}/reviews`, {

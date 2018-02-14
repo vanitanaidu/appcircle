@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-// import 'bootstrap/dist/css/bootstrap.css'
 
 import Users from './components/users/index';
 import errorPage from './components/error/error';
@@ -13,15 +12,15 @@ const App = () => (
   <div>
     <nav className="navbar navbar-default navbar-static-top" id="navbar-bottom">
       <div className="container" >
-        <Link to="/"className="navbar-brand" id="text">Home</Link>
         <Link to="/users/new" id="text">Add a New User</Link>
+        <Link to="/"className="navbar-brand" id="text">Home</Link>
       </div>
     </nav>
 
 
     <Switch>
       <Route path="/users/new" component={AddUserForm} /> // positioning matters
-      <Route path="/users/:id" component={ShowUser}/>
+      <Route path="/users/:id" component={ShowUser} />
       <Route exact path="/" component={Users} />
 
       <Route component={errorPage} />

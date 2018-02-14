@@ -136,7 +136,6 @@ class AddUserForm extends Component {
                   accept="image/*"
                   id="profile_pics"
                   onChange={(event) => this.handleOnChange(event)} />
-                  className="form-control"
                 />
               </div>
             <button type="submit"> Save My Profile </button>
@@ -147,7 +146,7 @@ class AddUserForm extends Component {
 }
 
 function mapStateToProps(state) {
-  return { addUser: state.users.users } // the last user in state.
+  return { users: state.users.users } // the last user in state.
 }
 
 function mapDispatchToProps(dispatch) {

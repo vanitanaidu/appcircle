@@ -17,11 +17,9 @@ class ShowUser extends Component {
       }
   }
 
-
   componentDidMount = () => {
     const { id } = this.props.match.params //same as writing const id = this.props.match.params.id
     this.props.fetchUser(id)
-
   }
 
 //To delete a single user. This method calls on the deleteUser action under the actions folder
@@ -79,19 +77,25 @@ class ShowUser extends Component {
     const schools = this.state.editable ? <textarea ref="schools" defaultValue={user.schools}/> : <div> {user.schools} </div>
 
       return (
-        <div key={user.id} className="display_form">
-           <h2> {name} </h2>
-           <h3> Age: {age} </h3>
-           <h3> Interest: {interests} </h3>
-           <h3> About Me: {about_me} </h3>
-           <h3> Past Jobs: {past_jobs} </h3>
-           <h3> Favourite Food: {fav_food} </h3>
-           <h3> Favourite movies: {fav_movies} </h3>
-           <h3> State: {state} </h3>
-           <h3> City: {city} </h3>
-           <h3> Languages I know: {languages} </h3>
-           <h3> Schools I attended: {schools} </h3>
-        </div>
+        <div key={user.id}>
+          <div className="jumbotron" >
+            <div className="container">
+              <h2> {name} </h2>
+            </div>
+          </div>
+          <div className="container" id="show-user-detail">
+           <h6> Age: <small> {age} </small> </h6>
+           <h6> Interest: <small> {interests} </small> </h6>
+           <h6> About Me: <small> {about_me} </small> </h6>
+           <h6> Past Jobs: <small> {past_jobs} </small> </h6>
+           <h6> Favorite Food: <small> {fav_food} </small> </h6>
+           <h6> Favorite movies: <small> {fav_movies} </small> </h6>
+           <h6> State: <small> {state} </small> </h6>
+           <h6> City: <small> {city} </small> </h6>
+           <h6> Languages I know: <small> {languages} </small> </h6>
+           <h6> Schools I attended: <small> {schools} </small> </h6>
+         </div>
+       </div>
       )
   }
 
@@ -104,19 +108,20 @@ class ShowUser extends Component {
       const {match} = this.props
        return (
        <div>
-        {this.renderUser()}
 
-         <button className="btn btn-danger pull-xs-right" onClick={this.onDeleteClick.bind(this)}>
-            Delete User
-         </button>
+          {this.renderUser()}
 
-         <button className="btn btn-danger pull-xs-right" onClick={this.handleEdit.bind(this)}>
-          {this.state.editable ? 'Submit' : 'Edit'}
-         </button>
+           <button role="button" className="btn float-right btn btn-custom"  onClick={this.onDeleteClick.bind(this)}>
+              Delete User
+           </button>
 
-         <Comments userId={match.params.id} users={this.props.users} />
-         <AddCommentForm userId={match.params.id} />
-         <ProfilePics userId={match.params.id} />
+           <button className="btn float-right btn btn-custom" onClick={this.handleEdit.bind(this)}>
+            {this.state.editable ? 'Submit' : 'Edit'}
+           </button>
+           <br/>
+           <Comments userId={match.params.id} users={this.props.users} />
+           <AddCommentForm userId={match.params.id} history={this.props.history} />
+
 
        </div>
      )

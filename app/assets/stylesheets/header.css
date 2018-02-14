@@ -1,3 +1,5 @@
+
+/* user index page */
 .navbar-default {
   background-color: #125688;
 }
@@ -5,6 +7,27 @@
 #navbar-bottom {
   margin-bottom: 10px;
 }
+
 #text {
   color: #e6e6e6;
+}
+
+/* user show page */
+.btn-default {
+  border: 10px solid black;
+  border-style: round;
+}
+
+#show-user-detail {
+  margin-top: 50px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.btn-custom {
+  color: #b3b3b3;
+  background-color: #ffffff;
+  border-color: #595959;
+
+  /* And then all the hover, focus, active, and disabled styles... */
 }

@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import { Link, Route } from 'react-router-dom';
 // import _ from 'lodash';
-import { fetchPics } from '../../actions/pictures/profile_pics';
-
+// import { fetchPictures } from '../../actions/pictures/profile_pics';
+    //  <ProfilePics userId={match.params.id} />  //this is for the usershowpage until render return
 class ProfilePics extends Component {
 
   componentDidMount = () => {
+    console.log("Image", this.props.match.params.id)
     const id = this.props.userId
    this.props.fetchPictures(id)
   }

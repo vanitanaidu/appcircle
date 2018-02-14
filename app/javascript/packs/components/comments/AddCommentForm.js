@@ -12,34 +12,28 @@ class AddCommentForm extends Component {
     this.setState({
         [name]: value,
     })
-    console.log(event.target.value)
   }
 
   handleOnSubmit = (event) => {
     const id = this.props.userId
     event.preventDefault()
-      this.props.addComment(this.state, id)
+
+      this.props.addnewComment(this.state, id)
       this.props.history.push(`/users/${id}`)
-    console.log(this.props.history)
   }
-
-
-
-"/users/:id"
-
 
   render() {
 
     return (
       <div>
         <h3 className="header"></h3>
-        <form className="comment_form" onSubmit={this.handleOnSubmit.bind(this)}>
+        <form className="comment_form" onSubmit={this.handleOnSubmit}>
           <div>
             <div>
               <label htmlFor="add_comment"> Add a Comment </label>
             </div>
               <textarea
-                name="comment"
+                name="content"
                 onChange={(event) => this.handleOnChange(event)} />
           </div>
             <button type="submit"> Upload my Comment </button>
@@ -50,8 +44,7 @@ class AddCommentForm extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.comments.comments)
-  return { addComment: state.comments.comments } // the last user in state.
+  return { comments: state.comments.comments } // the last user in state.
 }
 
 function mapDispatchToProps(dispatch) {
