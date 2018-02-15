@@ -69,11 +69,7 @@ class Api::UsersController < ApplicationController
       :city,
       :languages,
       :schools,
-      users_attributes: %I[
-        id
-        photo
-        _destroy
-      ]
+
     ]
       )
   end

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { Link, Route } from 'react-router-dom';
 import _ from 'lodash';
-import { fetchComments } from '../../actions/comments/index';
+// import { Link, Route } from 'react-router-dom';
+
+import { fetchComments } from '../../actions/comments';
+
+import DeleteComment from '../comments/DeleteComment'
 
 class Comments extends Component {
 
@@ -12,27 +15,26 @@ class Comments extends Component {
   }
 
   renderComments = () => {
-
     return _.map(this.props.comments, comment => {
       return (
-
-        <li key={comment.id} >
-            <div> {comment.content} </div>
-            <br/>
+        <li className="list-group-item disabled" key={comment.id} >
+          <div> {comment.content} </div>
+          <DeleteComment userId={this.props.userId} id={comment.id} history={this.props.history} />
+          <br/>
         </li>
-
       )
     })
   }
 
   render() {
-
+      const renderComments = this.props.loading ? "loading..." : this.renderComments()
     return (
-      <div>
+      <div className="container">
         <h2> Comments </h2>
+        <br/>
         <ul>
-          {this.renderComments()}
-          </ul>
+          {renderComments}
+        </ul>
       </div>
     )
 
@@ -40,8 +42,7 @@ class Comments extends Component {
 }
 //
 function mapStateToProps(state) {
-  console.log()
- return { comments: state.comments.comments }
+ return { comments: state.comments.comments, loading: state.comments.loading }
 }
 //
 //

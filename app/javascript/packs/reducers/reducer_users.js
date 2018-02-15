@@ -7,28 +7,31 @@ import { fetchComments } from '../actions/comments/index';
 import { addComment } from '../actions/comments/add_comment_action';
 
 
-const INITIAL_STATE = {users: [], comments: []}
+const INITIAL_STATE = {users: [], comments: [], loading: false}
 
 export default function UserReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
 
+  case 'LOADING':
+    return Object.assign({}, state, {loading: true})
+
   case 'FETCH_USERS':
-    return Object.assign({}, state, {users: action.payload})
+    return Object.assign({}, state, {users: action.payload, loading: false})
 
   case 'ADD_USER':
-    return Object.assign({}, state, {users: [...state.users, action.payload]})
+    return Object.assign({}, state, {users: [...state.users, action.payload], loading: false})
 
   case 'FETCH_USER':
-    return Object.assign({}, state, {users: [...state.users, action.payload]})
+    return Object.assign({}, state, {users: [...state.users, action.payload], loading: false})
 
   case 'UPDATE_USER':
-    return Object.assign({}, state, {users: [...state.users, action.payload]})
+    return Object.assign({}, state, {users: [...state.users, action.payload], loading: false})
 
     case 'FETCH_COMMENTS':
-      return Object.assign({}, state, {comments: action.payload})
+      return Object.assign({}, state, {comments: action.payload, loading: false})
 
     case 'ADD_COMMENT':
-      return Object.assign({}, state, {comments: [...state.comments, action.payload]})
+      return Object.assign({}, state, {comments: [...state.comments, action.payload], loading: false})
 
   default:
     return state

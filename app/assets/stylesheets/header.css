@@ -1,18 +1,50 @@
 
-/* user index page */
-.navbar-default {
-  background-color: #125688;
+
+
+/******************** user index page ********************/
+.navbar-custom {
+  background-color: #009973;
 }
 
+/* #125688;*/
+
 #navbar-bottom {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 #text {
   color: #e6e6e6;
 }
 
-/* user show page */
+#title {
+  background-color: #ffffff
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-gap: 30px;
+  background-color: #ffffff;
+  color: #fff;
+}
+
+.box {
+  background-color: #fff;
+  color: #ffffff;
+  border-radius: 5px;
+  padding: 50px;
+  border: 5px solid #f2f2f2;
+}
+/*.col-md-4 {
+  border: 2px solid #737373;
+  display: inline-block;
+     width: 150px;
+     height: 75px;
+     margin: 10px;
+}*/
+
+
+/********************* user show page *********************/
 .btn-default {
   border: 10px solid black;
   border-style: round;
@@ -31,3 +63,5 @@
 
   /* And then all the hover, focus, active, and disabled styles... */
 }
+
+  /*   comment index  */

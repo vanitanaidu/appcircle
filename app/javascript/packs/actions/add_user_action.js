@@ -1,7 +1,7 @@
 
 export function addUser(user) {
   return (dispatch) => {
-    dispatch({ type: 'ADD_USER' });
+    dispatch({ type: 'LOADING' });
     return fetch('/api/users', {
 
       method: 'POST',

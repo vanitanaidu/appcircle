@@ -81,56 +81,48 @@ class ShowUser extends Component {
           <div className="jumbotron" >
             <div className="container">
               <h2> {name} </h2>
+              <h6> {about_me} </h6>
             </div>
           </div>
+
+          <button role="button" className="btn float-right btn btn-custom" onClick={this.onDeleteClick.bind(this)}>
+             Delete User
+          </button>
+          <button className="btn float-right btn btn-custom" onClick={this.handleEdit.bind(this)}>
+           {this.state.editable ? 'Submit' : 'Edit'}
+          </button>
+
           <div className="container" id="show-user-detail">
            <h6> Age: <small> {age} </small> </h6>
            <h6> Interest: <small> {interests} </small> </h6>
-           <h6> About Me: <small> {about_me} </small> </h6>
            <h6> Past Jobs: <small> {past_jobs} </small> </h6>
            <h6> Favorite Food: <small> {fav_food} </small> </h6>
            <h6> Favorite movies: <small> {fav_movies} </small> </h6>
            <h6> State: <small> {state} </small> </h6>
            <h6> City: <small> {city} </small> </h6>
-           <h6> Languages I know: <small> {languages} </small> </h6>
-           <h6> Schools I attended: <small> {schools} </small> </h6>
+           <h6> Languages: <small> {languages} </small> </h6>
+           <h6> Schools: <small> {schools} </small> </h6>
          </div>
        </div>
       )
   }
 
    render() {
-    //  this.props.users.map(user => {
-    //    if(!user){
-    //     return <div> Loading..... </div>
-    //    }
-    //  }
       const {match} = this.props
+      const renderUser = this.props.loading ? "loading..." : this.renderUser()
        return (
        <div>
-
-          {this.renderUser()}
-
-           <button role="button" className="btn float-right btn btn-custom"  onClick={this.onDeleteClick.bind(this)}>
-              Delete User
-           </button>
-
-           <button className="btn float-right btn btn-custom" onClick={this.handleEdit.bind(this)}>
-            {this.state.editable ? 'Submit' : 'Edit'}
-           </button>
-           <br/>
-           <Comments userId={match.params.id} users={this.props.users} />
-           <AddCommentForm userId={match.params.id} history={this.props.history} />
-
-
+        {renderUser}
+         <br/>
+         <Comments userId={match.params.id} users={this.props.users} />
+         <AddCommentForm userId={match.params.id} history={this.props.history} />
        </div>
      )
    }
-
 }
                       // {users} same as users = state.users
 function mapStateToProps({users}) {
-  return { users: users.users }
+  return { users: users.users, loading: users.loading }
 }
 
 export default connect(mapStateToProps, { fetchUser, deleteUser, updateUser })(ShowUser);

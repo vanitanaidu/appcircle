@@ -145,15 +145,15 @@ class AddUserForm extends Component {
     }
 }
 
-function mapStateToProps(state) {
-  return { users: state.users.users } // the last user in state.
-}
+// function mapStateToProps(state) {
+//   return { users: state.users.users } // the last user in state.
+// }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({addUser: addUser}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddUserForm);
+export default connect(null, mapDispatchToProps)(AddUserForm);
 
 
 

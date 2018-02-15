@@ -19,6 +19,8 @@ class User < ApplicationRecord
       fav_food: fav_food,
       state: state,
       city: city,
+      languages: languages,
+      schools: schools,
 
       profile_pics: photos.map do |x|
         {

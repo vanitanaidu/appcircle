@@ -9,25 +9,20 @@ import AddUserForm from './AddUserForm';
 class Users extends Component {
 
   componentDidMount = () => {
-    debugger
-    console.log("I am now in the user index page. component did mount. this.props is =", this.props)
     this.props.fetchUsers()
   }
 
   renderUsers = () => {
-    console.log("I am now in the user index page renderusers..this.props.users is =", this.props.users)
-    return _.map(this.props.users, user => {
+    return this.props.users.map(user => {
       return (
-        <div className="row" key={user.id}>
-          <div className="col-md-4">
-              <Link className="list-group-item disabled" to= {"users/" + user.id} >
-                  <h5> {user.name} </h5>
-                  <h6> About me: <small> {user.about_me} </small> </h6>
-                  <h6> Interests: <small> {user.interests} </small> </h6>
-                  <h6> State/City: <small> {user.state} - {user.city} </small> </h6>
-              </Link>
-
-          </div>
+        <div key={user.id} className="box">
+            <Link to= {"users/" + user.id} >
+                <h5> {user.name} </h5>
+                <h6> About me: <small> {user.about_me.split(/\s+/).slice(0,5).join(" ")} </small> </h6>
+                <h6> Interests: <small> {user.interests} </small> </h6>
+                <h6> State/City: <small> {user.state} - {user.city} </small> </h6>
+                <br></br>
+            </Link>
         </div>
       )
     })
@@ -35,15 +30,17 @@ class Users extends Component {
 
   render() {
 
+    const renderUsers = this.props.loading ? "loading..." : this.renderUsers()
     return (
       <div>
-        <div className="jumbotron" >
+        <div className="jumbotron"  id="title" >
           <div className="container">
-            <h1> Circle </h1>
+            <h1> Meet . New . Friends </h1>
           </div>
         </div>
-          <div className="container">
-            {this.renderUsers()}
+
+          <div className="container wrapper" >
+            {renderUsers}
           </div>
 
       </div>
@@ -52,8 +49,7 @@ class Users extends Component {
 }
 
 function mapStateToProps(state) {
-    console.log("I am now in the user index page. mapstatetoProps.. state is =", state.users.users)
-  return { users: state.users.users }
+  return { users: state.users.users, loading: state.users.loading }
 }
 
  export default connect(mapStateToProps, { fetchUsers }) (Users);

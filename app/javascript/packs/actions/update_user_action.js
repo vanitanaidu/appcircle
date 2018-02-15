@@ -1,6 +1,6 @@
 export function updateUser(user) {
   return (dispatch) => {
-    dispatch({ type: 'UPDATE_USER' });
+    dispatch({ type: 'LOADING' });
     return fetch(`/api/users/${user.id}`, {
 
       method: 'PUT',
