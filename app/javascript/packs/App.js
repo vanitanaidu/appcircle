@@ -11,9 +11,9 @@ import ShowUser from './components/users/ShowUser';
 const App = () => (
   <div>
     <nav className="navbar navbar-custom navbar-fixed-top" id="navbar-bottom">
-      <div className="container navbar-header " >
-        <Link to="/users/new" id="text">Add a New User</Link>
+      <div className="container navbar-header">
         <Link to="/" className="navbar-brand" id="text">Home</Link>
+        <Link to="/users/new" id="text">Add a New User</Link>
       </div>
     </nav>
 

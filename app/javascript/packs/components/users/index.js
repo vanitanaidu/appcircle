@@ -13,12 +13,12 @@ class Users extends Component {
   }
 
   renderUsers = () => {
-    return this.props.users.map(user => {
+    return _.map(this.props.users, user => {
       return (
         <div key={user.id} className="box">
             <Link to= {"users/" + user.id} >
                 <h5> {user.name} </h5>
-                <h6> About me: <small> {user.about_me.split(/\s+/).slice(0,5).join(" ")} </small> </h6>
+                <h6> About me: <small> {user.about_me} </small> </h6>
                 <h6> Interests: <small> {user.interests} </small> </h6>
                 <h6> State/City: <small> {user.state} - {user.city} </small> </h6>
                 <br></br>
@@ -39,10 +39,9 @@ class Users extends Component {
           </div>
         </div>
 
-          <div className="container wrapper" >
-            {renderUsers}
-          </div>
-
+        <div className="container wrapper" >
+          {renderUsers}
+        </div>
       </div>
     )
   }

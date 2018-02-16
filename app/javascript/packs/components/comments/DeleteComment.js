@@ -10,14 +10,14 @@ class DeleteComment extends Component {
     const { userId } = this.props
     this.props.deleteComment(id, userId)
     alert("This comment will be deleted");
-    this.props.history.push("/users/" + userId)
+    this.props.history.replace("/users/" + userId)
   }
 
   render() {
     return (
       <div>
-      <button type="button" className="btn btn-small" onClick={this.onDeleteClick.bind(this)}>
-        <i className="fa fa-trash-o"></i>
+      <button type="button" className="btn btn-small float-right" onClick={this.onDeleteClick.bind(this)}>
+        Delete
       </button>
       </div>
     )

@@ -21,14 +21,6 @@ class User < ApplicationRecord
       city: city,
       languages: languages,
       schools: schools,
-
-      profile_pics: photos.map do |x|
-        {
-          url: x.photo.url.absolute_url,
-          name: x.photo_file_name,
-          id: x.id
-        }
-      end
     }
   end
 end

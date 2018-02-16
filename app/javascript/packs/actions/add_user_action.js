@@ -1,5 +1,5 @@
 
-export function addUser(user) {
+export function addUser(user, callback) {
   return (dispatch) => {
     dispatch({ type: 'LOADING' });
     return fetch('/api/users', {
@@ -12,7 +12,8 @@ export function addUser(user) {
       body: JSON.stringify({ user: user })
     })
       .then(response => response.json())
-      .then(newUser => dispatch({ type: 'ADD_USER', payload: newUser}));
+      .then(newUser => dispatch({ type: 'ADD_USER', payload: newUser}))
+      .then(() => callback());
   };
 }
 //

@@ -12,7 +12,7 @@ import { Route } from 'react-router';
 import thunk from 'redux-thunk';
 
 import UserReducer from './reducers/reducer_users';
-// import CommentReducer from './reducers/reducer_comments'
+import CommentReducer from './reducers/reducer_comments'
 
 import App from './App'
 
@@ -25,7 +25,7 @@ const useThunk = thunk
 const store = createStore(
   combineReducers({
     users: UserReducer,
-    comments: UserReducer,
+    comments: CommentReducer,
     router: routerReducer
   }),
   applyMiddleware(middleware, useThunk)

@@ -10,22 +10,22 @@ class AddUserForm extends Component {
   handleOnChange = (event) => {
     const { name, value } = event.target //the above line of code is the same as:
     this.setState({                       // const name = event.target.name
-        [name]: value,                    // const value = event.target.value
+      [name]: value,                    // const value = event.target.value
     })
   }
 
   handleOnSubmit = (event) => {
     event.preventDefault()
-      this.props.addUser(this.state)
-      this.props.history.push('/')
+      this.props.addUser(this.state, () => {
+        this.props.history.push('/')
+      })
   }
 
   render() {
 
     return (
       <div>
-        <h3 className="header"> Add New User </h3>
-        <form className="display_form" onSubmit={this.handleOnSubmit}>
+        <form className="container" onSubmit={this.handleOnSubmit}>
 
           <div>
             <div>
@@ -36,7 +36,15 @@ class AddUserForm extends Component {
                 name="name"
                 onChange={(event) => this.handleOnChange(event)} />
           </div>
-            /* if you want to call `onChange={this.handleOnChange}``, you have bind it to `this` at the top. Else the syntax would be .. onChange={(event) => this.handleOnChange(event)} */
+          <div>
+            <div>
+              <label htmlFor="age"> Age </label>
+            </div>
+              <input
+                name="age"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
+
 
           <div>
             <div>
@@ -44,15 +52,6 @@ class AddUserForm extends Component {
             </div>
               <textarea
                 name="about_me"
-                onChange={(event) => this.handleOnChange(event)} />
-          </div>
-
-          <div>
-            <div>
-              <label htmlFor="age"> Age </label>
-            </div>
-              <textarea
-                name="age"
                 onChange={(event) => this.handleOnChange(event)} />
           </div>
 
@@ -114,7 +113,7 @@ class AddUserForm extends Component {
             <div>
               <label htmlFor="state"> State </label>
             </div>
-              <textarea
+              <input
                 name="state"
                 onChange={(event) => this.handleOnChange(event)} />
           </div>
@@ -123,21 +122,11 @@ class AddUserForm extends Component {
             <div>
               <label htmlFor="city"> City </label>
             </div>
-              <textarea
+              <input
                 name="city"
                 onChange={(event) => this.handleOnChange(event)} />
           </div>
 
-          <div>
-              <input
-                  name="profile_pics"
-                  type="file"
-                  multiple={true}
-                  accept="image/*"
-                  id="profile_pics"
-                  onChange={(event) => this.handleOnChange(event)} />
-                />
-              </div>
             <button type="submit"> Save My Profile </button>
         </form>
       </div>

@@ -8,6 +8,8 @@ import { updateUser } from '../../actions/update_user_action';
 
 import Comments from '../comments/index';
 import AddCommentForm from '../comments/AddCommentForm';
+import DeleteUser from './DeleteUser';
+
 
 class ShowUser extends Component {
   constructor(props) {
@@ -22,15 +24,8 @@ class ShowUser extends Component {
     this.props.fetchUser(id)
   }
 
-//To delete a single user. This method calls on the deleteUser action under the actions folder
-  onDeleteClick = () => {
-    const { id } = this.props.match.params
-    this.props.deleteUser(id)
-    alert("This user will be deleted");
-    this.props.history.push("/")
-  }
-
   handleEdit = () => {
+    const { id } = this.props.match.params
     if(this.state.editable) {
 
       const user = {
@@ -53,20 +48,18 @@ class ShowUser extends Component {
     this.setState({
       editable: !this.state.editable
     })
+    // this.props.history.replace("/users/" + id)
   }
 
 
   renderUser = () => {
-    const props = this.props
-    const index =  _.findIndex(this.props.users, function(user) {
-      return user.id == props.match.params.id
-    })
-    const user = this.props.users[index]
+
+    const user = this.props.users[this.props.match.params.id]
 
     //either display a form with default value or display the user.name
     const name = this.state.editable ? <input type="text" ref="name" defaultValue={user.name}/> : <div> {user.name} </div>
     const age = this.state.editable ? <textarea ref="age" defaultValue={user.age}/> : <div> {user.age} </div>
-    const interests = this.state.editable ? <textarea ref="interests" defaultValue={user.interests}/> : <div> { user.interests} </div>
+    const interests = this.state.editable ? <textarea ref="interests" defaultValue={user.interests}/> : <div> {user.interests} </div>
     const about_me = this.state.editable ? <textarea ref="about_me" defaultValue={user.about_me}/> : <div> {user.about_me} </div>
     const past_jobs = this.state.editable ? <textarea ref="past_jobs" defaultValue={user.past_jobs}/> : <div> {user.past_jobs} </div>
     const fav_food = this.state.editable ? <textarea ref="fav_food" defaultValue={user.fav_food}/> : <div> {user.fav_food} </div>
@@ -85,9 +78,7 @@ class ShowUser extends Component {
             </div>
           </div>
 
-          <button role="button" className="btn float-right btn btn-custom" onClick={this.onDeleteClick.bind(this)}>
-             Delete User
-          </button>
+          <DeleteUser userId={this.props.match.params.id} history={this.props.history} />
           <button className="btn float-right btn btn-custom" onClick={this.handleEdit.bind(this)}>
            {this.state.editable ? 'Submit' : 'Edit'}
           </button>
@@ -114,7 +105,7 @@ class ShowUser extends Component {
        <div>
         {renderUser}
          <br/>
-         <Comments userId={match.params.id} users={this.props.users} />
+         <Comments userId={match.params.id} users={this.props.users} history={this.props.history} />
          <AddCommentForm userId={match.params.id} history={this.props.history} />
        </div>
      )
@@ -122,6 +113,7 @@ class ShowUser extends Component {
 }
                       // {users} same as users = state.users
 function mapStateToProps({users}) {
+  console.log("the redux state is show page is", users.users)
   return { users: users.users, loading: users.loading }
 }
 

@@ -30,7 +30,7 @@ class AddCommentForm extends Component {
               <textarea
                 className="form-control" rows="5" id="comment"
                 name="content"
-                placeHolder="Add a Comment"
+                placeholder="Add a Comment"
                 onChange={(event) => this.handleOnChange(event)}
                 />
           </div>
