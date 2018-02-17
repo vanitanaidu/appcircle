@@ -14,7 +14,7 @@ export default function CommentReducer(state = INITIAL_STATE, action) {
       return Object.assign({}, state, {comments: newstate, loading: false})
 
     case 'ADD_COMMENT':
-      return Object.assign({}, state, {comments: [...state.comments, action.payload.id: action.payload], loading: false})
+      return Object.assign({}, state, {comments: {...state.comments, [action.payload.id]: action.payload}, loading: false})
 
   default:
     return state

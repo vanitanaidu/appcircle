@@ -1,9 +1,8 @@
 import _ from 'lodash';
 import { fetchUsers } from '../actions/index';
 import { addUser } from '../actions/add_user_action';
-import { fetchUser } from '../actions/show_user_action';
+import { fetchUser } from '../actions/fetch_user_action';
 import { updateUser } from '../actions/update_user_action';
-
 
 
 const INITIAL_STATE = {users: {}, loading: false}
@@ -19,13 +18,14 @@ export default function UserReducer(state = INITIAL_STATE, action) {
     return Object.assign({}, state, {users: newstate, loading: false})
 
   case 'ADD_USER':
-     return Object.assign({}, state, {users: [...state.users, action.payload.id: action.payload], loading: false})
+
+     return Object.assign({}, state, {users: {...state.users, [action.payload.id]: action.payload}, loading: false})
 
   case 'FETCH_USER':
-    return Object.assign({}, state, {users: [...state.users, action.payload.id: action.payload], loading: false})
+    return Object.assign({}, state, {users: {...state.users, [action.payload.id]: action.payload}, loading: false})
 
   case 'UPDATE_USER':
-    return Object.assign({}, state, {users: [...state.users, action.payload.id: action.payload], loading: false})
+    return Object.assign({}, state, {users: {...state.users, [action.payload.id]: action.payload}, loading: false})
 
 
   default:

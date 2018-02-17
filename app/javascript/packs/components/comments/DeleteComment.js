@@ -10,7 +10,7 @@ class DeleteComment extends Component {
     const { userId } = this.props
     this.props.deleteComment(id, userId)
     alert("This comment will be deleted");
-    this.props.history.replace("/users/" + userId)
+    this.props.history.push("/users/" + userId)
   }
 
   render() {
@@ -24,4 +24,10 @@ class DeleteComment extends Component {
   }
 
 }
-export default connect(null, { deleteComment }) (DeleteComment);
+
+function mapStateToProps( state, ownProps) {
+console.log("the state is ", state)
+return state
+}
+
+export default connect(mapStateToProps, { deleteComment }) (DeleteComment);
