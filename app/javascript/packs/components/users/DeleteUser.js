@@ -7,15 +7,15 @@ import { deleteUser } from '../../actions/delete_user_action';
 class DeleteUser extends Component {
 
     onDeleteClick = () => {
-      this.props.deleteUser(this.props.userId)
-      alert("This user will be deleted");
-      this.props.history.push("/")
+      this.props.deleteUser(this.props.userId);
+      alert("This user will be deleted")
+      this.props.history.push("/");
     }
 
   render() {
     return (
-      <div>
-      <button role="button" className="btn float-right btn btn-custom" onClick={this.onDeleteClick.bind(this)}>
+      <div className="container">
+      <button className="btn-default float-right" onClick={this.onDeleteClick.bind(this)}>
          Delete User
       </button>
      </div>

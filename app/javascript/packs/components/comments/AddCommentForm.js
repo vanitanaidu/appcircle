@@ -24,19 +24,19 @@ class AddCommentForm extends Component {
   render() {
 
     return (
-      <div className="container">
         <form className="form-group" onSubmit={this.handleOnSubmit}>
           <div>
               <textarea
-                className="form-control" rows="5" id="comment"
+                className="form-control"
+                rows="5" 
                 name="content"
-                placeholder="Add a Comment"
+                placeholder="Add a Comment..."
                 onChange={(event) => this.handleOnChange(event)}
                 />
           </div>
-            <button type="submit"> Upload my Comment </button>
+            <button className="upload-comment-button" type="submit"> Upload my Comment </button>
         </form>
-      </div>
+
       )
     }
 }

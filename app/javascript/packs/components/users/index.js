@@ -5,6 +5,7 @@ import _ from 'lodash';
 
 import { fetchUsers } from '../../actions'; // when u don't specify a file inside a folder and just call the folder name, it means you are calling the index.js file
 import AddUserForm from './AddUserForm';
+import Images from '../images/Images';
 
 class Users extends Component {
 
@@ -15,8 +16,10 @@ class Users extends Component {
   renderUsers = () => {
     return _.map(this.props.users, user => {
       return (
-        <div key={user.id} className="box">
+        <div key={user.id} className="thumbnail box">
             <Link to= {"users/" + user.id} >
+                <Images/>
+                <br />
                 <h5> {user.name} </h5>
                 <h6> About me: <small> {user.about_me} </small> </h6>
                 <h6> Interests: <small> {user.interests} </small> </h6>

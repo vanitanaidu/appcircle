@@ -43,12 +43,10 @@ class EditUser extends Component {
   }
 
   renderUser = () => {
-
-
     const { user } = this.props
- if(!user) {
-   return "loading..."
- }
+     if(!user) {
+       return "loading..."
+     }
 
     //either display a form with default value or display the new {user.name} depending on if the component state is editable.
     const name = this.state.editable ? <input type="text" ref="name" defaultValue={user.name}/> : <div> {user.name} </div>

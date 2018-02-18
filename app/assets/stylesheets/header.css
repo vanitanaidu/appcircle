@@ -6,7 +6,6 @@
   background-color: #009973;
 }
 
-/* #125688;*/
 
 #navbar-bottom {
   margin-bottom: 30px;
@@ -32,36 +31,40 @@
   background-color: #fff;
   color: #ffffff;
   border-radius: 5px;
-  padding: 50px;
+  padding: 10px;
   border: 5px solid #f2f2f2;
 }
-/*.col-md-4 {
-  border: 2px solid #737373;
-  display: inline-block;
-     width: 150px;
-     height: 75px;
-     margin: 10px;
-}*/
-
 
 /********************* user show page *********************/
-.btn-default {
-  border: 10px solid black;
-  border-style: round;
-}
 
-#show-user-detail {
+/*#show-user-detail {
   margin-top: 50px;
   margin-bottom: 10px;
   padding: 10px;
+}*/
+
+.img-responsive {
+  max-height: 500px;
+  max-width: 350px;
 }
 
-.btn-custom {
-  color: #b3b3b3;
-  background-color: #ffffff;
-  border-color: #595959;
+/*********************  new user  ********************/
 
-  /* And then all the hover, focus, active, and disabled styles... */
+.save-user-button {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  margin-right: 180px
 }
 
-  /*   comment index  */
+  /*********************  new comment  ********************/
+
+  .form-group {
+    margin-top: 70px;
+    margin-left: 180px;
+    margin-right: 200px;
+  }
+
+  .upload-comment-button {
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }

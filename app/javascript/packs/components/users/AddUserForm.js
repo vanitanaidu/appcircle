@@ -24,119 +24,106 @@ class AddUserForm extends Component {
   render() {
 
     return (
-      <div>
-        <form className="container" onSubmit={this.handleOnSubmit}>
+      <div >
+        <form onSubmit={this.handleOnSubmit}>
 
-          <div>
-            <div>
+          <div className="form-group">
               <label htmlFor="name"> Name </label>
-            </div>
               <input
+                className="form-control"
                 type="text"
                 name="name"
                 onChange={(event) => this.handleOnChange(event)} />
+
           </div>
-          <div>
-            <div>
+
+          <div className="form-group">
               <label htmlFor="age"> Age </label>
-            </div>
               <input
+                className="form-control"
                 name="age"
                 onChange={(event) => this.handleOnChange(event)} />
           </div>
 
-
-          <div>
-            <div>
-              <label htmlFor="about_me"> About Me </label>
-            </div>
-              <textarea
-                name="about_me"
-                onChange={(event) => this.handleOnChange(event)} />
-          </div>
-
-          <div>
-            <div>
-              <label htmlFor="past_jobs"> Past Jobs </label>
-            </div>
-              <textarea
-                name="past_jobs"
-                onChange={(event) => this.handleOnChange(event)} />
-          </div>
-
-          <div>
-            <div>
-              <label htmlFor="interests"> Interests </label>
-            </div>
-              <textarea
-                name="interests"
-                onChange={(event) => this.handleOnChange(event)} />
-          </div>
-
-          <div>
-            <div>
-              <label htmlFor="schools"> Schools </label>
-            </div>
-              <textarea
-                name="schools"
-                onChange={(event) => this.handleOnChange(event)} />
-          </div>
-
-          <div>
-            <div>
-              <label htmlFor="languages"> Languages </label>
-            </div>
-              <textarea
-                name="languages"
-                onChange={(event) => this.handleOnChange(event)} />
-          </div>
-
-          <div>
-            <div>
-              <label htmlFor="fav_movies"> Favourite Movies </label>
-            </div>
-              <textarea
-                name="fav_movies"
-                onChange={(event) => this.handleOnChange(event)} />
-          </div>
-
-          <div>
-            <div>
-              <label htmlFor="fav_food"> Favourite Food </label>
-            </div>
-              <textarea
-                name="fav_food"
-                onChange={(event) => this.handleOnChange(event)} />
-          </div>
-
-          <div>
-            <div>
+          <div className="form-group">
               <label htmlFor="state"> State </label>
-            </div>
               <input
+                className="form-control"
                 name="state"
                 onChange={(event) => this.handleOnChange(event)} />
           </div>
 
-          <div>
-            <div>
+          <div className="form-group">
               <label htmlFor="city"> City </label>
-            </div>
               <input
+                className="form-control"
                 name="city"
                 onChange={(event) => this.handleOnChange(event)} />
           </div>
 
-            <button type="submit"> Save My Profile </button>
+          <div className="form-group">
+              <label htmlFor="about_me"> About Me </label>
+              <textarea
+                className="form-control"
+                name="about_me"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
+
+          <div className="form-group">
+              <label htmlFor="past_jobs"> Past Jobs </label>
+              <textarea
+                className="form-control"
+                name="past_jobs"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
+
+          <div className="form-group">
+              <label htmlFor="interests"> Interests </label>
+              <textarea
+                className="form-control"
+                name="interests"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
+
+          <div className="form-group">
+              <label htmlFor="schools"> Schools </label>
+              <textarea
+                className="form-control"
+                name="schools"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
+
+          <div className="form-group">
+              <label htmlFor="languages"> Languages </label>
+              <textarea
+                className="form-control"
+                name="languages"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
+
+          <div className="form-group">
+              <label htmlFor="fav_movies"> Favourite Movies </label>
+              <textarea
+                className="form-control"
+                name="fav_movies"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
+
+          <div className="form-group">
+              <label htmlFor="fav_food"> Favourite Food </label>
+              <textarea
+                className="form-control"
+                name="fav_food"
+                onChange={(event) => this.handleOnChange(event)} />
+          </div>
+
+            <button className="save-user-button float-right " type="submit"> Save My Profile </button>
         </form>
       </div>
       )
     }
 }
 
-// function mapStateToProps(state) {
-//   return { users: state.users.users } // the last user in state.
-// }
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({addUser: addUser}, dispatch)
