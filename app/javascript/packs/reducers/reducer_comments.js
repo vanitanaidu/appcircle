@@ -16,6 +16,11 @@ export default function CommentReducer(state = INITIAL_STATE, action) {
     case 'ADD_COMMENT':
       return Object.assign({}, state, {comments: {...state.comments, [action.payload.id]: action.payload}, loading: false})
 
+    case 'DELETE_COMMENT':
+      const new_comment = {...state.comments}
+      delete new_comment[action.payload]
+      return Object.assign({}, state, {comments: new_comment, loading: false})
+
   default:
     return state
   }

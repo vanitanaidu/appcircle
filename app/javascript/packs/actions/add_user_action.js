@@ -12,7 +12,15 @@ export function addUser(user, callback) {
       body: JSON.stringify({ user: user })
     })
       .then(response => response.json())
-      .then(newUser => dispatch({ type: 'ADD_USER', payload: newUser}))
+      .then(newUser => {
+        if(newUser.errors) {
+          dispatch({ type: 'ERRORS', payload: newUser.errors.messages })
+        }
+        else {
+          dispatch({ type: 'ADD_USER', payload: newUser })
+        }
+      })
+
       .then(() => callback());
   };
 }

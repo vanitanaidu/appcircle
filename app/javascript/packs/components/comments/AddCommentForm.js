@@ -28,7 +28,7 @@ class AddCommentForm extends Component {
           <div>
               <textarea
                 className="form-control"
-                rows="5" 
+                rows="5"
                 name="content"
                 placeholder="Add a Comment..."
                 onChange={(event) => this.handleOnChange(event)}
@@ -41,15 +41,11 @@ class AddCommentForm extends Component {
     }
 }
 
-function mapStateToProps(state) {
-  return { comments: state.comments.comments, loading: state.comments.loading} // the last user in state.
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({addComment: addComment}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddCommentForm);
+export default connect(null, mapDispatchToProps)(AddCommentForm);
 
 
 

@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :name, :about_me, :interests, :past_jobs, :fav_movies, :fav_food, presence: true
+  validates :name, :age, :state, :city, :about_me, :interests, :past_jobs, :fav_movies, :fav_food, presence: true
 
   has_many :reviews, dependent: :destroy #dependent destroy deletes all the reviews associated to the user when that user gets deleted.
   has_many :photos, dependent: :destroy

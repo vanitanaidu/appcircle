@@ -26,7 +26,7 @@ class DeleteComment extends Component {
 }
 
 function mapStateToProps( state, ownProps) {
-console.log("the state is ", state)
+
 return state
 }
 

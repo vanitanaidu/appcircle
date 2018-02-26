@@ -5,7 +5,7 @@ import { fetchUser } from '../actions/fetch_user_action';
 import { updateUser } from '../actions/update_user_action';
 
 
-const INITIAL_STATE = {users: {}, loading: false}
+const INITIAL_STATE = { users: {}, loading: false, errors:{} }
 
 export default function UserReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -13,12 +13,14 @@ export default function UserReducer(state = INITIAL_STATE, action) {
   case 'LOADING':
     return Object.assign({}, state, {loading: true})
 
+  case 'ERRORS':
+    return Object.assign({}, state, {errors: action.payload})
+
   case 'FETCH_USERS':
   const newstate = _.mapKeys(action.payload, "id")
     return Object.assign({}, state, {users: newstate, loading: false})
 
   case 'ADD_USER':
-
      return Object.assign({}, state, {users: {...state.users, [action.payload.id]: action.payload}, loading: false})
 
   case 'FETCH_USER':

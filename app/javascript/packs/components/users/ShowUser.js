@@ -19,6 +19,7 @@ class ShowUser extends Component {
       }
   }
 
+
   componentDidMount = () => {
     const { id } = this.props.match.params //same as writing const id = this.props.match.params.id
     this.props.fetchUser(id)

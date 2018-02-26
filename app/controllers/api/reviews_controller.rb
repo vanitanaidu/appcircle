@@ -34,7 +34,7 @@ class Api::ReviewsController < ApplicationController
     else
       render json: {
         errors: {
-          messages: { review: "review can't be found" }
+          messages: { review: "comment can't be found" }
         }
       }, status: 404
     end

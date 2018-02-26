@@ -1,4 +1,5 @@
 export function deleteComment(id, user_id) {
+  console.log("the id is ", id)
   return (dispatch) => {
     dispatch({ type: 'DELETE_COMMENT' });
     return fetch(`/api/users/${user_id}/reviews/${id}`, {
@@ -8,6 +9,6 @@ export function deleteComment(id, user_id) {
         'Content-Type': 'application/json'
       }
     })
-      .then(id => dispatch({ type: 'DELETE_COMMENT', payload: id }));
+      .then(response => dispatch({ type: 'DELETE_COMMENT', payload: id }));
   };
 }

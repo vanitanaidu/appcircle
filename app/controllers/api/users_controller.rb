@@ -48,7 +48,7 @@ class Api::UsersController < ApplicationController
   def render_errors
     render json: {
       errors: {
-        messages:  @user.errors.messages
+        messages:  @user.errors.full_messages
       }
     }, status: 422
   end
