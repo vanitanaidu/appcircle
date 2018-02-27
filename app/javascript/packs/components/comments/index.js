@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-// import { Link, Route } from 'react-router-dom';
 
 import { fetchComments } from '../../actions/comments';
-
 import DeleteComment from '../comments/DeleteComment'
+
 
 class Comments extends Component {
 
@@ -27,7 +26,7 @@ class Comments extends Component {
   }
 
   render() {
-      const renderComments = this.props.loading ? "loading..." : this.renderComments()
+      const renderComments = this.props.commentLoading ? "loading..." : this.renderComments()
     return (
       <div className="container">
         <h2> Comments </h2>
@@ -42,7 +41,7 @@ class Comments extends Component {
 }
 //
 function mapStateToProps(state) {
- return { comments: state.comments.comments, loading: state.comments.loading }
+ return { comments: state.comments.comments, commentLoading: state.comments.loading }
 }
 //
 //

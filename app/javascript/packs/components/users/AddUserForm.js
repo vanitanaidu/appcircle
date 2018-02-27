@@ -86,7 +86,7 @@ class AddUserForm extends Component {
                 name="name"
                 onChange={(event) => this.handleOnChange(event)}
                 // errortext={this.state.nameError}
-              />
+              required />
 
 
           </div>
@@ -98,7 +98,7 @@ class AddUserForm extends Component {
                 name="age"
                 onChange={(event) => this.handleOnChange(event)}
                 // errortext={this.state.ageError}
-              />
+              required />
           </div>
 
           <div className="form-group">
@@ -108,7 +108,7 @@ class AddUserForm extends Component {
                 name="state"
                 onChange={(event) => this.handleOnChange(event)}
                 // errortext={this.state.stateError}
-              />
+              required />
           </div>
 
           <div className="form-group">
@@ -118,7 +118,7 @@ class AddUserForm extends Component {
                 name="city"
                 onChange={(event) => this.handleOnChange(event)}
                 // errortext={this.state.cityError}
-              />
+              required />
           </div>
 
           <div className="form-group">
@@ -128,7 +128,7 @@ class AddUserForm extends Component {
                 name="about_me"
                 onChange={(event) => this.handleOnChange(event)}
                 // errortext={this.state.aboutMeError}
-              />
+              required />
           </div>
 
           <div className="form-group">
@@ -138,7 +138,7 @@ class AddUserForm extends Component {
                 name="past_jobs"
                 onChange={(event) => this.handleOnChange(event)}
                 // errortext={this.state.pastJobsError}
-              />
+              required />
           </div>
 
           <div className="form-group">
@@ -148,7 +148,7 @@ class AddUserForm extends Component {
                 name="interests"
                 onChange={(event) => this.handleOnChange(event)}
                 // errortext={this.state.interestsError}
-              />
+              required />
           </div>
 
           <div className="form-group">
@@ -158,7 +158,7 @@ class AddUserForm extends Component {
                 name="schools"
                 onChange={(event) => this.handleOnChange(event)}
                 // errortext={this.state.schoolsError}
-              />
+              required />
           </div>
 
           <div className="form-group">
@@ -168,7 +168,7 @@ class AddUserForm extends Component {
                 name="languages"
                 onChange={(event) => this.handleOnChange(event)}
                 // errortext={this.state.languagesError}
-              />
+               />
           </div>
 
           <div className="form-group">

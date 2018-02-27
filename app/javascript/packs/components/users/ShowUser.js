@@ -5,11 +5,11 @@ import _ from 'lodash';
 import { fetchUser } from '../../actions/fetch_user_action';
 import { deleteUser } from '../../actions/delete_user_action';
 import { updateUser } from '../../actions/update_user_action';
-
 import Comments from '../comments/index';
 import AddCommentForm from '../comments/AddCommentForm';
 import DeleteUser from './DeleteUser';
 import Images from '../images/Images';
+
 
 class ShowUser extends Component {
   constructor(props) {
@@ -55,11 +55,9 @@ class ShowUser extends Component {
 
   renderUser = () => {
     const user = this.props.user
-
     if(!user) {
       return "loading..."
     }
-
     //either display a form with default value or display the user.name
     const name = this.state.editable ? <input type="text" ref="name" defaultValue={user.name}/> : <div> {user.name} </div>
     const age = this.state.editable ? <textarea ref="age" defaultValue={user.age}/> : <div> {user.age} </div>
@@ -108,7 +106,7 @@ class ShowUser extends Component {
 
    render() {
       const {match} = this.props
-      const renderUser = this.props.loading ? "loading..." : this.renderUser()
+      const renderUser = this.props.userLoading ? "loading..." : this.renderUser()
        return (
        <div>
         {renderUser}
@@ -121,7 +119,7 @@ class ShowUser extends Component {
 }
                       // {users} same as users = state.users
 function mapStateToProps({users}, ownProps) {
-  return { user: users.users[ownProps.match.params.id], loading: users.loading }
+  return { user: users.users[ownProps.match.params.id], userLoading: users.loading }
 }
 
 export default connect(mapStateToProps, { fetchUser, deleteUser, updateUser })(ShowUser);

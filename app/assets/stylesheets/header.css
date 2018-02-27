@@ -1,4 +1,6 @@
-
+:required {
+   border: 1px solid red;
+}
 
 
 /******************** user index page ********************/

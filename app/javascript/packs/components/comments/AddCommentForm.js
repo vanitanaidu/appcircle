@@ -17,8 +17,9 @@ class AddCommentForm extends Component {
   handleOnSubmit = (event) => {
     const id = this.props.userId
     event.preventDefault()
-      this.props.addComment(this.state, id)
-      this.props.history.push(`/users/${id}`)
+    this.props.addComment(this.state, id)
+    this.props.history.push(`/users/${id}`)
+
   }
 
   render() {
