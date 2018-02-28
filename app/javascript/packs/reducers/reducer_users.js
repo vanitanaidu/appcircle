@@ -10,7 +10,7 @@ const INITIAL_STATE = { users: {}, loading: false, errors:{} }
 export default function UserReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
 
-  case 'LOADING':
+  case 'LOADING_USERS':
     return Object.assign({}, state, {loading: true})
 
   case 'ERRORS':

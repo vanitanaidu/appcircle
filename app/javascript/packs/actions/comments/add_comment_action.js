@@ -2,7 +2,7 @@
 export function addComment(comment, id) {
 
   return (dispatch) => {
-    dispatch({ type: 'LOADING' });
+    dispatch({ type: 'LOADING_COMMENTS' });
     return fetch(`/api/users/${id}/reviews`, {
 
       method: 'POST',

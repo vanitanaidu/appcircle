@@ -19,7 +19,6 @@ class ShowUser extends Component {
       }
   }
 
-
   componentDidMount = () => {
     const { id } = this.props.match.params //same as writing const id = this.props.match.params.id
     this.props.fetchUser(id)
@@ -57,55 +56,56 @@ class ShowUser extends Component {
     const user = this.props.user
     if(!user) {
       return "loading..."
-    }
+    } else {
     //either display a form with default value or display the user.name
-    const name = this.state.editable ? <input type="text" ref="name" defaultValue={user.name}/> : <div> {user.name} </div>
-    const age = this.state.editable ? <textarea ref="age" defaultValue={user.age}/> : <div> {user.age} </div>
-    const interests = this.state.editable ? <textarea ref="interests" defaultValue={user.interests}/> : <div> {user.interests} </div>
-    const about_me = this.state.editable ? <textarea ref="about_me" defaultValue={user.about_me}/> : <div> {user.about_me} </div>
-    const past_jobs = this.state.editable ? <textarea ref="past_jobs" defaultValue={user.past_jobs}/> : <div> {user.past_jobs} </div>
-    const fav_food = this.state.editable ? <textarea ref="fav_food" defaultValue={user.fav_food}/> : <div> {user.fav_food} </div>
-    const fav_movies = this.state.editable ? <textarea ref="fav_movies" defaultValue={user.fav_movies}/> : <div> {user.fav_movies} </div>
-    const state = this.state.editable ? <textarea ref="state" defaultValue={user.state}/> : <div> {user.state} </div>
-    const city = this.state.editable ? <textarea ref="city" defaultValue={user.city}/> : <div> {user.city} </div>
-    const languages = this.state.editable ? <textarea ref="languages" defaultValue={user.languages}/> : <div> {user.languages} </div>
-    const schools = this.state.editable ? <textarea ref="schools" defaultValue={user.schools}/> : <div> {user.schools} </div>
+      const name = this.state.editable ? <input type="text" ref="name" defaultValue={user.name}/> : <div> {user.name} </div>
+      const age = this.state.editable ? <textarea ref="age" defaultValue={user.age}/> : <div> {user.age} </div>
+      const interests = this.state.editable ? <textarea ref="interests" defaultValue={user.interests}/> : <div> {user.interests} </div>
+      const about_me = this.state.editable ? <textarea ref="about_me" defaultValue={user.about_me}/> : <div> {user.about_me} </div>
+      const past_jobs = this.state.editable ? <textarea ref="past_jobs" defaultValue={user.past_jobs}/> : <div> {user.past_jobs} </div>
+      const fav_food = this.state.editable ? <textarea ref="fav_food" defaultValue={user.fav_food}/> : <div> {user.fav_food} </div>
+      const fav_movies = this.state.editable ? <textarea ref="fav_movies" defaultValue={user.fav_movies}/> : <div> {user.fav_movies} </div>
+      const state = this.state.editable ? <textarea ref="state" defaultValue={user.state}/> : <div> {user.state} </div>
+      const city = this.state.editable ? <textarea ref="city" defaultValue={user.city}/> : <div> {user.city} </div>
+      const languages = this.state.editable ? <textarea ref="languages" defaultValue={user.languages}/> : <div> {user.languages} </div>
+      const schools = this.state.editable ? <textarea ref="schools" defaultValue={user.schools}/> : <div> {user.schools} </div>
 
-      return (
-        <div key={user.id}>
-          <div className="jumbotron" >
-            <div className="container">
-              <Images/>
-              <br/>
-              <h2> {name} </h2>
-              <h6> {about_me} </h6>
+        return (
+          <div key={user.id}>
+            <div className="jumbotron" >
+              <div className="container">
+                <Images/>
+                <br/>
+                <h2> {name} </h2>
+                <h6> {about_me} </h6>
+              </div>
             </div>
-          </div>
 
-          <DeleteUser userId={this.props.match.params.id} history={this.props.history} />
-          <button className="btn-default float-right" onClick={this.handleEdit.bind(this)}>
-           {this.state.editable ? 'Submit' : 'Edit'}
-          </button>
+            <DeleteUser userId={this.props.match.params.id} history={this.props.history} />
+            <button className="btn-default float-right" onClick={this.handleEdit.bind(this)}>
+             {this.state.editable ? 'Submit' : 'Edit'}
+            </button>
 
-          <div className="container" id="show-user-detail">
+            <div className="container" id="show-user-detail">
 
-           <h6> Age: <small> {age} </small> </h6>
-           <h6> Interest: <small> {interests} </small> </h6>
-           <h6> Past Jobs: <small> {past_jobs} </small> </h6>
-           <h6> Favorite Food: <small> {fav_food} </small> </h6>
-           <h6> Favorite movies: <small> {fav_movies} </small> </h6>
-           <h6> State: <small> {state} </small> </h6>
-           <h6> City: <small> {city} </small> </h6>
-           <h6> Languages: <small> {languages} </small> </h6>
-           <h6> Schools: <small> {schools} </small> </h6>
+             <h6> Age: <small> {age} </small> </h6>
+             <h6> Interest: <small> {interests} </small> </h6>
+             <h6> Past Jobs: <small> {past_jobs} </small> </h6>
+             <h6> Favorite Food: <small> {fav_food} </small> </h6>
+             <h6> Favorite movies: <small> {fav_movies} </small> </h6>
+             <h6> State: <small> {state} </small> </h6>
+             <h6> City: <small> {city} </small> </h6>
+             <h6> Languages: <small> {languages} </small> </h6>
+             <h6> Schools: <small> {schools} </small> </h6>
 
+           </div>
          </div>
-       </div>
-      )
-  }
-
+        )
+    }
+}
    render() {
       const {match} = this.props
+      console.log(this.props.userLoading)
       const renderUser = this.props.userLoading ? "loading..." : this.renderUser()
        return (
        <div>
@@ -123,6 +123,3 @@ function mapStateToProps({users}, ownProps) {
 }
 
 export default connect(mapStateToProps, { fetchUser, deleteUser, updateUser })(ShowUser);
-
-
-//what if a user went straight to the showpage like through a bookmark or a link and does not pass through the index page

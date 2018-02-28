@@ -6,7 +6,7 @@ const INITIAL_STATE = {comments: {}, loading: false}
 export default function CommentReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
 
-  case 'LOADING':
+  case 'LOADING_COMMENTS':
     return Object.assign({}, state, {loading: true})
 
     case 'FETCH_COMMENTS':

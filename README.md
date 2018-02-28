@@ -1,31 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Description of Project
+This is a mini facebook app for retirees. Retirees often struggle with unexciting and almost non-existent social lives.  So, I wanted to create a place for the next generation of retirees (who will be increasingly computer savvy), where they have opportunities to connect with friends they might have lost touch with or make new friends.
 
-* Ruby version
 
-* System dependencies
+## How to
+Fork and clone this app locally
+Run bundle install
+Run rake db:migrate
+Run rake db:seed
+Run rails s
+Open local host 3000 on your browser
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-<!-- 
-"scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "test": "react-scripts test --env=jsdom",
-  "eject": "react-scripts eject"
-} -->
+## Blog

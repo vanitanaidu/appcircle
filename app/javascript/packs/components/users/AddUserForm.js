@@ -7,71 +7,81 @@ import { addUser } from '../../actions/add_user_action'
 
 
 class AddUserForm extends Component {
-  // state = {
-  //   nameError: "",
-  //   ageError: "",
-  //   stateError: "",
-  //   cityError: "",
-  //   aboutMeError: "",
-  //   pastJobsError: "",
-  //   interestsError: "",
-  //   schoolsError: "",
-  //   languagesError: "",
-  //   favMoviesError: "",
-  //   favFoodError: "",
-  //
-  // }
+  state = {
+    nameError: "",
+    ageError: "",
+    stateError: "",
+    cityError: "",
+    interestsError: "",
+  }
 
 
   handleOnChange = (event) => {
     const { name, value } = event.target //the above line of code is the same as:
-    // const err = this.validate()
-    // if(!err) {
       this.setState({                       // const name = event.target.name
         [name]: value,                    // const value = event.target.value
       })
-    // }
   }
 
-  // validate = () => {
-  //   let isError = false
-  //   const errors = {}
-  //
-  //   if(this.state.name.length < 10 ) {
-  //     isError = true
-  //     errors.nameError = 'name is required'
-  //   }
-  //   if(isError) {
-  //     this.setState({
-  //       ...this.state,
-  //       ...errors
-  //     })
-  //   }
-  //
-  // }
+  validate = () => {
+    let isError = false
+    const numbers = /^[0-9]+$/;
+    const errors = {
+      nameError: "",
+      ageError: "",
+      stateError: "",
+      cityError: "",
+      interestsError: "",
+    }
+
+    if(!this.state.name) {
+      isError = true
+      errors.nameError = 'name is required'
+    }
+
+    if(!this.state.age) {
+      isError = true
+      errors.ageError = 'age is required'
+    } else {
+        if(!this.state.age.match(numbers)) {
+          isError = true
+          errors.ageError = 'please enter a number'
+        }
+      }
+
+    if(!this.state.city) {
+      isError = true
+      errors.cityError = 'city is required'
+    }
+
+    if(!this.state.state) {
+      isError = true
+      errors.stateError = 'state is required'
+    }
+
+    if(!this.state.interests) {
+      isError = true
+      errors.interestsError = 'interest is required'
+    }
+
+    this.setState({
+      ...this.state,
+      ...errors
+    })
+    return isError
+  }
 
   handleOnSubmit = (event) => {
     event.preventDefault()
-      this.props.addUser(this.state, () => {
-        // if(!this.props.errors) {
-         this.props.history.push('/')
-        // }
+    const err = this.validate()
+    if(!err) {
+     this.props.addUser(this.state, () => {
+        this.props.history.push('/')
       })
-
+    }
   }
 
-  // renderError= () => {
-  //   return _.map(this.props.errors, error => {
-  //     return (
-  //       <div>
-  //         <h2> {error} </h2>
-  //       </div>
-  //     )
-  //   })
-  // }
-
   render() {
-    // const errors = this.props.errors ? this.renderError() : ""
 
     return (
       <div >
@@ -84,11 +94,10 @@ class AddUserForm extends Component {
                 className="form-control"
                 type="text"
                 name="name"
+                ref="name"
                 onChange={(event) => this.handleOnChange(event)}
-                // errortext={this.state.nameError}
-              required />
-
-
+              />
+              {this.state.nameError ? <div className="alert alert-danger">{this.state.nameError}</div> : null}
           </div>
 
           <div className="form-group">
@@ -96,9 +105,10 @@ class AddUserForm extends Component {
               <input
                 className="form-control"
                 name="age"
+                ref="age"
                 onChange={(event) => this.handleOnChange(event)}
-                // errortext={this.state.ageError}
-              required />
+               />
+              {this.state.ageError ? <div className="alert alert-danger">{this.state.ageError}</div> : null}
           </div>
 
           <div className="form-group">
@@ -106,9 +116,10 @@ class AddUserForm extends Component {
               <input
                 className="form-control"
                 name="state"
+                ref="state"
                 onChange={(event) => this.handleOnChange(event)}
-                // errortext={this.state.stateError}
-              required />
+              />
+              {this.state.stateError ? <div className="alert alert-danger">{this.state.stateError}</div> : null}
           </div>
 
           <div className="form-group">
@@ -116,9 +127,11 @@ class AddUserForm extends Component {
               <input
                 className="form-control"
                 name="city"
+                ref="city"
                 onChange={(event) => this.handleOnChange(event)}
-                // errortext={this.state.cityError}
-              required />
+               />
+               {this.state.cityError ? <div className="alert alert-danger">{this.state.cityError}</div> : null}
+
           </div>
 
           <div className="form-group">
@@ -126,9 +139,9 @@ class AddUserForm extends Component {
               <textarea
                 className="form-control"
                 name="about_me"
+                ref="about_me"
                 onChange={(event) => this.handleOnChange(event)}
-                // errortext={this.state.aboutMeError}
-              required />
+              />
           </div>
 
           <div className="form-group">
@@ -136,9 +149,9 @@ class AddUserForm extends Component {
               <textarea
                 className="form-control"
                 name="past_jobs"
+                ref="past_jobs"
                 onChange={(event) => this.handleOnChange(event)}
-                // errortext={this.state.pastJobsError}
-              required />
+               />
           </div>
 
           <div className="form-group">
@@ -146,9 +159,10 @@ class AddUserForm extends Component {
               <textarea
                 className="form-control"
                 name="interests"
+                ref="interests"
                 onChange={(event) => this.handleOnChange(event)}
-                // errortext={this.state.interestsError}
-              required />
+               />
+              {this.state.interestsError ? <div className="alert alert-danger">{this.state.interestsError}</div> : null}
           </div>
 
           <div className="form-group">
@@ -156,9 +170,9 @@ class AddUserForm extends Component {
               <textarea
                 className="form-control"
                 name="schools"
+                ref="schools"
                 onChange={(event) => this.handleOnChange(event)}
-                // errortext={this.state.schoolsError}
-              required />
+               />
           </div>
 
           <div className="form-group">
@@ -166,8 +180,8 @@ class AddUserForm extends Component {
               <textarea
                 className="form-control"
                 name="languages"
+                ref="languages"
                 onChange={(event) => this.handleOnChange(event)}
-                // errortext={this.state.languagesError}
                />
           </div>
 
@@ -176,8 +190,8 @@ class AddUserForm extends Component {
               <textarea
                 className="form-control"
                 name="fav_movies"
+                ref="fav_movies"
                 onChange={(event) => this.handleOnChange(event)}
-                // errortext={this.state.favMoviesError}
               />
           </div>
 
@@ -186,8 +200,8 @@ class AddUserForm extends Component {
               <textarea
                 className="form-control"
                 name="fav_food"
+                ref="fav_food"
                 onChange={(event) => this.handleOnChange(event)}
-                // errortext={this.state.favFoodError}
               />
           </div>
 
@@ -199,16 +213,11 @@ class AddUserForm extends Component {
 }
 
 
-function mapStateToProps(state) {
-
-  return { errors: state.users.errors }
-}
-
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({addUser: addUser}, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddUserForm);
+export default connect(null, mapDispatchToProps)(AddUserForm);
 
 
 
