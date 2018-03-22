@@ -19,7 +19,6 @@ class DeleteUser extends Component {
          Delete User
       </button>
      </div>
-
     )
   }
 }

@@ -27,6 +27,7 @@ const store = createStore(
     users: UserReducer,
     comments: CommentReducer,
     router: routerReducer
+    
   }),
   applyMiddleware(middleware, useThunk)
 )

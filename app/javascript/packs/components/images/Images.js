@@ -27,7 +27,7 @@ export default class Images extends Component {
       "https://i.imgur.com/cx2OD0B.jpg",
       "https://i.imgur.com/54GiwHN.jpg",
 
-    ];
+    ]
     const random = Math.floor(Math.random() * imgurImages.length);
     return imgurImages[random]
   }
@@ -35,11 +35,9 @@ export default class Images extends Component {
   render() {
 
     return (
-
           <div className="img-responsive embed-responsive embed-responsive-4by3">
             <img className ="embed-responsive-item" src={this.chooseImage()} />
           </div>
-
     )
   }
 }

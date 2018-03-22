@@ -15,7 +15,6 @@ class AddUserForm extends Component {
     interestsError: "",
   }
 
-
   handleOnChange = (event) => {
     const { name, value } = event.target //the above line of code is the same as:
       this.setState({                       // const name = event.target.name
@@ -71,6 +70,7 @@ class AddUserForm extends Component {
     return isError
   }
 
+
   handleOnSubmit = (event) => {
     event.preventDefault()
     const err = this.validate()
@@ -85,7 +85,6 @@ class AddUserForm extends Component {
 
     return (
       <div >
-
         <form onSubmit={this.handleOnSubmit}>
 
           <div className="form-group">
@@ -204,8 +203,8 @@ class AddUserForm extends Component {
                 onChange={(event) => this.handleOnChange(event)}
               />
           </div>
-
             <button className="save-user-button float-right " type="submit"> Save My Profile </button>
+
         </form>
       </div>
       )

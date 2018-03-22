@@ -9,7 +9,7 @@ import Comments from '../comments/index';
 import AddCommentForm from '../comments/AddCommentForm';
 import DeleteUser from './DeleteUser';
 import Images from '../images/Images';
-
+import LikeButton from './LikeButton';
 
 class ShowUser extends Component {
   constructor(props) {
@@ -42,22 +42,20 @@ class ShowUser extends Component {
         languages: this.refs.languages.value,
         schools: this.refs.schools.value
       }
-      this.props.updateUser(user) //this is an action.
+      this.props.updateUser(user)
     }
-
     this.setState({
       editable: !this.state.editable
     })
-    // this.props.history.replace("/users/" + id)
-  }
 
+  }
 
   renderUser = () => {
     const user = this.props.user
     if(!user) {
       return "loading..."
     } else {
-    //either display a form with default value or display the user.name
+    //either display a form with default value or display the user details
       const name = this.state.editable ? <input type="text" ref="name" defaultValue={user.name}/> : <div> {user.name} </div>
       const age = this.state.editable ? <textarea ref="age" defaultValue={user.age}/> : <div> {user.age} </div>
       const interests = this.state.editable ? <textarea ref="interests" defaultValue={user.interests}/> : <div> {user.interests} </div>
@@ -70,42 +68,41 @@ class ShowUser extends Component {
       const languages = this.state.editable ? <textarea ref="languages" defaultValue={user.languages}/> : <div> {user.languages} </div>
       const schools = this.state.editable ? <textarea ref="schools" defaultValue={user.schools}/> : <div> {user.schools} </div>
 
-        return (
-          <div key={user.id}>
-            <div className="jumbotron" >
-              <div className="container">
-                <Images/>
-                <br/>
-                <h2> {name} </h2>
-                <h6> {about_me} </h6>
-              </div>
+      return (
+        <div key={user.id}>
+          <div className="jumbotron" >
+            <div className="container">
+              <Images/>
+              <br/>
+              <h2> {name} </h2>
+              <h6> {about_me} </h6>
+              <LikeButton user={user}/>
             </div>
+          </div>
 
-            <DeleteUser userId={this.props.match.params.id} history={this.props.history} />
-            <button className="btn-default float-right" onClick={this.handleEdit.bind(this)}>
-             {this.state.editable ? 'Submit' : 'Edit'}
-            </button>
+          <DeleteUser userId={this.props.match.params.id} history={this.props.history} />
+          <button className="btn-default float-right" onClick={this.handleEdit.bind(this)}>
+           {this.state.editable ? 'Submit' : 'Edit'}
+          </button>
 
-            <div className="container" id="show-user-detail">
-
-             <h6> Age: <small> {age} </small> </h6>
-             <h6> Interest: <small> {interests} </small> </h6>
-             <h6> Past Jobs: <small> {past_jobs} </small> </h6>
-             <h6> Favorite Food: <small> {fav_food} </small> </h6>
-             <h6> Favorite movies: <small> {fav_movies} </small> </h6>
-             <h6> State: <small> {state} </small> </h6>
-             <h6> City: <small> {city} </small> </h6>
-             <h6> Languages: <small> {languages} </small> </h6>
-             <h6> Schools: <small> {schools} </small> </h6>
-
-           </div>
+          <div className="container" id="show-user-detail">
+           <h6> Age: <small> {age} </small> </h6>
+           <h6> Interest: <small> {interests} </small> </h6>
+           <h6> Past Jobs: <small> {past_jobs} </small> </h6>
+           <h6> Favorite Food: <small> {fav_food} </small> </h6>
+           <h6> Favorite movies: <small> {fav_movies} </small> </h6>
+           <h6> State: <small> {state} </small> </h6>
+           <h6> City: <small> {city} </small> </h6>
+           <h6> Languages: <small> {languages} </small> </h6>
+           <h6> Schools: <small> {schools} </small> </h6>
          </div>
-        )
-    }
+       </div>
+      )
+  }
 }
+
    render() {
       const {match} = this.props
-      console.log(this.props.userLoading)
       const renderUser = this.props.userLoading ? "loading..." : this.renderUser()
        return (
        <div>
@@ -122,4 +119,4 @@ function mapStateToProps({users}, ownProps) {
   return { user: users.users[ownProps.match.params.id], userLoading: users.loading }
 }
 
-export default connect(mapStateToProps, { fetchUser, deleteUser, updateUser })(ShowUser);
+export default connect(mapStateToProps, { fetchUser, updateUser })(ShowUser);

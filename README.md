@@ -15,3 +15,4 @@ Open local host 3000 on your browser
 
 
 ## Blog
+http://vanitanaidueckert.com/react_redux_glossary

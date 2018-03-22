@@ -18,8 +18,8 @@ class AddCommentForm extends Component {
     const id = this.props.userId
     event.preventDefault()
     this.props.addComment(this.state, id)
+    event.target.reset()
     this.props.history.push(`/users/${id}`)
-
   }
 
   render() {
@@ -37,9 +37,8 @@ class AddCommentForm extends Component {
           </div>
             <button className="upload-comment-button" type="submit"> Upload my Comment </button>
         </form>
-
-      )
-    }
+    )
+  }
 }
 
 function mapDispatchToProps(dispatch) {
@@ -47,9 +46,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(null, mapDispatchToProps)(AddCommentForm);
-
-
-
-// have an action for the form. The action is gonna be in charge of adding users to the redux state.
-// After that, we send our action to the reducer.Then we will use mapStateToProps and mapDispatchToProps
-// to access the results from the reducer

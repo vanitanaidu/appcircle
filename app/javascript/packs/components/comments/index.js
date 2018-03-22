@@ -26,7 +26,7 @@ class Comments extends Component {
   }
 
   render() {
-      const renderComments = this.props.commentLoading ? "loading..." : this.renderComments()
+    const renderComments = this.props.commentLoading ? "loading..." : this.renderComments()
     return (
       <div className="container">
         <h2> Comments </h2>
@@ -39,12 +39,11 @@ class Comments extends Component {
 
   }
 }
-//
+
 function mapStateToProps(state) {
  return { comments: state.comments.comments, commentLoading: state.comments.loading }
 }
-//
-//
+
 export default connect(mapStateToProps, { fetchComments }) (Comments);
 //{ fetchUsers } is basically es6 for { fetchUsers: fetchUsers } and writing it either way is short cut for having to write out the function mapDispatchToProps.
 // this page is your index page that renders all the users.

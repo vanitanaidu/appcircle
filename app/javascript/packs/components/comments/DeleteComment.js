@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { deleteComment } from '../../actions/comments/delete_comment_action';
 
+
 class DeleteComment extends Component {
 
   onDeleteClick = () => {
@@ -16,18 +17,16 @@ class DeleteComment extends Component {
   render() {
     return (
       <div>
-      <button type="button" className="btn btn-small float-right" onClick={this.onDeleteClick.bind(this)}>
-        Delete
-      </button>
+        <button type="button" className="btn btn-small float-right" onClick={this.onDeleteClick.bind(this)}>
+          Delete
+        </button>
       </div>
     )
   }
-
 }
 
 function mapStateToProps( state, ownProps) {
-
-return state
+  return state
 }
 
 export default connect(mapStateToProps, { deleteComment }) (DeleteComment);

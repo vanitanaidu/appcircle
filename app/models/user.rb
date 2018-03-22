@@ -2,9 +2,6 @@ class User < ApplicationRecord
   validates :name, :age, :state, :city, :interests, presence: true
 
   has_many :reviews, dependent: :destroy #dependent destroy deletes all the reviews associated to the user when that user gets deleted.
-  # has_many :photos, dependent: :destroy
-  # accepts_nested_attributes_for :photos, allow_destroy: true
-
 
   def as_json(_opts = {})
     {
@@ -21,6 +18,7 @@ class User < ApplicationRecord
       city: city,
       languages: languages,
       schools: schools,
+      likes: likes,
     }
   end
 end

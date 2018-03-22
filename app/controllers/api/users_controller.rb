@@ -69,7 +69,7 @@ class Api::UsersController < ApplicationController
       :city,
       :languages,
       :schools,
-
+      :likes,
     ]
       )
   end
