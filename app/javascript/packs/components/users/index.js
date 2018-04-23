@@ -14,15 +14,15 @@ class Users extends Component {
   }
 
   renderUsers = () => {
-    return _.map(this.props.users, (user) => {
+    const sorted = _.sortBy(this.props.users, 'name')
+    return sorted.map(user => {
       return (
         <div key={user.id} className="thumbnail box">
           <UserCard user={user}/>
         </div>
       )
-  })
+    })
 }
-
 
   render() {
 
@@ -51,13 +51,3 @@ function mapStateToProps(state) {
 //{ fetchUsers } is basically es6 for { fetchUsers: fetchUsers } and writing it either way is short cut for having to write out the function mapDispatchToProps.
 // this page is your index page that renders all the users.
 //so basically when a user clicks on the link 'users', he/she gets directed to this page.
-
-
-
-// Instructions from Cernan:
-//  *done  1. Get the Like feature working so that each individual card updates when clicked on - NO PERSISTENCE
-//
-// *done 2. Get the Like feature working WITH PERSISTENCE - remove local state - separate branch (edited)
-// 3. Write a blog post on the fetch API - use the example of the console.logs in your post
-// 4. Study on js array methods like filter and sort
-// meetme.so/reactlearnassessment  (Schedule another appointment here)

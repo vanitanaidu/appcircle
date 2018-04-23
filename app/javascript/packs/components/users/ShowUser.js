@@ -85,6 +85,7 @@ class ShowUser extends Component {
            {this.state.editable ? 'Submit' : 'Edit'}
           </button>
 
+
           <div className="container" id="show-user-detail">
            <h6> Age: <small> {age} </small> </h6>
            <h6> Interest: <small> {interests} </small> </h6>

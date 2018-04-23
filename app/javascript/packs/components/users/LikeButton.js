@@ -26,6 +26,14 @@ class LikeButton extends Component {
 
   // Like feature WITH PERSISTENCE
   buttonClick = () => {
+    //react-redux way of doing it
+    const user = {
+      id: this.props.user.id,
+      likes: this.props.user.likes + 1
+    }
+    this.props.updateUser(user)
+
+    
     //react way of doing it
     // const id = this.props.user.id
     // const user = {
@@ -45,21 +53,13 @@ class LikeButton extends Component {
     //         likes: user.likes
     //       }) })
     // };
-
-    //react-redux way of doing it
-    const user = {
-      id: this.props.user.id,
-      likes: this.props.user.likes + 1
-    }
-    this.props.updateUser(user)
   }
-
 
   render() {
 
     return (
       <div>
-        <button onClick={this.buttonClick}>  {this.props.user.likes < 1 ? 'Like 0' : 'Likes'} {this.props.user.likes} </button>
+        <button onClick={this.buttonClick}>  {this.props.user.likes < 1 ? 'Likes 0' : 'Likes'} {this.props.user.likes} </button>
       </div>
     )
   }
