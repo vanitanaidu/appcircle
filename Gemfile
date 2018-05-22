@@ -29,6 +29,12 @@ gem 'jquery-rails'
 
 gem 'bootstrap', '~> 4.0.0'
 
+gem 'omniauth'
+
+gem 'omniauth-facebook'
+
+gem 'dotenv-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -41,7 +47,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'faker'
   gem 'capybara'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'selenium-webdriver'
