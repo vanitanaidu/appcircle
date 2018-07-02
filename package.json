@@ -1,12 +1,24 @@
 {
+  "name": "circle-app",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vanitanaidu/appcircle"
+  },
+  "scripts": {
+    "start": "localhost:3000"
+},
+  "version": "1.0.0",
   "dependencies": {
     "@rails/webpacker": "^3.2.1",
     "babel-preset-react": "^6.24.1",
     "coffeescript": "1.12.7",
     "lodash": "^4.17.4",
+    "npm": "^4.6.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-facebook-login": "^4.0.1",
     "react-images-upload": "^1.1.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",

@@ -5,7 +5,7 @@ import Users from './components/users/index';
 import errorPage from './components/error/error';
 import AddUserForm from './components/users/AddUserForm';
 import ShowUser from './components/users/ShowUser';
-
+import Facebook from './components/facebook';
 
 
 const App = () => (
@@ -14,6 +14,7 @@ const App = () => (
       <div className="container navbar-header">
         <Link to="/" className="navbar-brand" id="text">Home</Link>
         <Link to="/users/new" id="text">Add a New User</Link>
+        <Facebook/>
       </div>
     </nav>
 
