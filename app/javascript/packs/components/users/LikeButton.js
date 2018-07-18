@@ -59,7 +59,7 @@ class LikeButton extends Component {
 
     return (
       <div>
-        <button onClick={this.buttonClick}>  {this.props.user.likes < 1 ? 'Like 0' : 'Likes'} {this.props.user.likes} </button>
+        <button type="button" class="btn btn-outline-secondary" onClick={this.buttonClick}>  {this.props.user.likes < 1 ? 'Like 0' : 'Likes'} {this.props.user.likes} </button>
       </div>
     )
   }

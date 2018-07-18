@@ -4818,6 +4818,13 @@ react-flip-move@^2.9.14:
   version "2.10.2"
   resolved "https://registry.yarnpkg.com/react-flip-move/-/react-flip-move-2.10.2.tgz#efd70dafb11594deac1827d9cf26ea2e773810d6"
 
+react-google-oauth@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-google-oauth/-/react-google-oauth-1.0.0.tgz#da65f41a4568cc69e44abc0b58fe0b4a97ab228e"
+  dependencies:
+    prop-types "^15.5.10"
+    react "^15.6.1"
+
 react-images-upload@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/react-images-upload/-/react-images-upload-1.1.1.tgz#fd7ace49df43b414326cfc0ff7535665226a71f5"

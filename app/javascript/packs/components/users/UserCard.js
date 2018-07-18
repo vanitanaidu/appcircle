@@ -18,7 +18,7 @@ export default class UserCard extends Component {
             <h5> {user.name} </h5>
             <h6> About me: <small> {user.about_me} </small> </h6>
             <h6> Interests: <small> {user.interests} </small> </h6>
-            <h6> State/City: <small> {user.state} - {user.city} </small> </h6>
+            <h6 class="state"> State/City: <small> {user.state} - {user.city} </small> </h6>
             <br></br>
 
         </Link>

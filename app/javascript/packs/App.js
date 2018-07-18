@@ -22,11 +22,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-custom navbar-fixed-top" id="navbar-bottom">
-          <div className="container navbar-header">
+        <nav className="navbar navbar-custom fixed-top" id="navbar-bottom">
+          <div className="container navbar-header ">
             <Link to="/" className="navbar-brand" id="text">Home</Link>
             <Link to="/users/new" id="text">Add a New User</Link>
-
           </div>
         </nav>
 

@@ -1,17 +1,55 @@
-:required {
+/*:required {
    border: 1px solid red;
-}
+}*/
 
 
 /******************** user index page ********************/
+
 .navbar-custom {
   background-color: #009973;
 }
 
-
-#navbar-bottom {
-  margin-bottom: 30px;
+div.jumbotron {
+  margin-top: 150px;
 }
+
+/*text on navbar*/
+a#text {
+  padding: 20px;
+  font-size: 28px;
+  text-decoration: none;
+}
+
+/*text on navbar*/
+a#text:hover {
+  color: white;
+}
+
+/*like buttons on the bottom left hand of usercard*/
+button.btn.btn-outline-secondary {
+  position:absolute;
+  bottom:0;
+  right:0;
+  margin-right: 17px;
+  margin-bottom: 16px;
+
+}
+
+/*like buttons on the bottom left hand of usercard*/
+div.thumbnail.box {
+  position: relative;
+}
+
+div.thumbnail.box h6, div.thumbnail.box h5 {
+margin-bottom: 16px;
+}
+
+div.thumbnail.box h6.state {
+margin-bottom: 56px;
+}
+
+
+
 
 #text {
   color: #e6e6e6;
