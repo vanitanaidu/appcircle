@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     end
   end
 
+
+
+  post 'auth/request', to:'authorization#get_authorization'
   get "/*path", to: 'welcome#home' ## this line of code automatically reroutes to the root page if the page you click on has an error
 
 end

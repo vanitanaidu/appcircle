@@ -4,6 +4,10 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy #dependent destroy deletes all the reviews associated to the user when that user gets deleted.
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 25b94055ebf230b98a9199fbddaab6040df633a7
   def as_json(_opts = {})
     {
       id: id,

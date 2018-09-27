@@ -16,6 +16,7 @@ export default class UserCard extends Component {
             <Images/>
             <br/>
             <h5> {user.name} </h5>
+<<<<<<< HEAD
             <br/>
             <h5> About me: </h5>
             <h5> <small> {user.about_me} </small> </h5>
@@ -23,6 +24,11 @@ export default class UserCard extends Component {
             <h5> Interests: <small> {user.interests} </small> </h5>
             
             <h5> State/City: <small> {user.state} - {user.city} </small> </h5>
+=======
+            <h6> About me: <small> {user.about_me} </small> </h6>
+            <h6> Interests: <small> {user.interests} </small> </h6>
+            <h6 class="state"> State/City: <small> {user.state} - {user.city} </small> </h6>
+>>>>>>> 25b94055ebf230b98a9199fbddaab6040df633a7
             <br></br>
 
         </Link>
