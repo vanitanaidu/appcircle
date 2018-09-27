@@ -71,32 +71,59 @@ class ShowUser extends Component {
       return (
         <div key={user.id}>
           <div className="jumbotron" >
-            <div className="container">
-              <Images/>
-              <br/>
-              <h2> {name} </h2>
-              <h6> {about_me} </h6>
-              <LikeButton user={user}/>
+            <div className="container show-container">
+                <div className="row">
+                  <div className="col-md-5">
+                    <Images/>
+                  </div>
+                  <br/>
+                  <div className="col-md-7 details">
+                    <h2> {name} </h2>
+                    <br></br>
+                    <h6> {about_me} </h6>
+                    <div id="like-button"> <LikeButton user={user}/> </div>
+                    <div id="edit-submit-button">
+                      <button onClick={this.handleEdit.bind(this)}>
+                       {this.state.editable ? 'Submit Changes' : 'Edit User'}
+                      </button>
+                    </div>
+                    <div id="delete-button"> <DeleteUser userId={this.props.match.params.id} history={this.props.history} /> </div>
+
+                  </div>
+                </div>
+
             </div>
+        </div>
+
+
+
+
+          <div className="container show-container">
+            <div className="grid-container" id="show-user-detail">
+
+             <div className="item1"> Age: </div>
+             <div className="item"> {age} </div>
+             <div className="item1"> Interest: </div>
+             <div className="item"> {interests} </div>
+             <div className="item1"> Past Jobs: </div>
+             <div className="item"> {past_jobs} </div>
+             <div className="item1"> Favorite Food: </div>
+             <div className="item"> {fav_food} </div>
+             <div className="item1"> Favorite movies: </div>
+             <div className="item"> {fav_movies} </div>
+             <div className="item1"> State: </div>
+             <div className="item"> {state} </div>
+             <div className="item1"> City: </div>
+             <div className="item"> {city} </div>
+             <div className="item1"> Languages: </div>
+             <div className="item"> {languages} </div>
+             <div className="item1"> Schools: </div>
+             <div className="item"> {schools} </div>
+
           </div>
-
-          <DeleteUser userId={this.props.match.params.id} history={this.props.history} />
-          <button className="btn-default float-right" onClick={this.handleEdit.bind(this)}>
-           {this.state.editable ? 'Submit' : 'Edit'}
-          </button>
+        </div>
 
 
-          <div className="container" id="show-user-detail">
-           <h6> Age: <small> {age} </small> </h6>
-           <h6> Interest: <small> {interests} </small> </h6>
-           <h6> Past Jobs: <small> {past_jobs} </small> </h6>
-           <h6> Favorite Food: <small> {fav_food} </small> </h6>
-           <h6> Favorite movies: <small> {fav_movies} </small> </h6>
-           <h6> State: <small> {state} </small> </h6>
-           <h6> City: <small> {city} </small> </h6>
-           <h6> Languages: <small> {languages} </small> </h6>
-           <h6> Schools: <small> {schools} </small> </h6>
-         </div>
        </div>
       )
   }

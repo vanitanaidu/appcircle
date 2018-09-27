@@ -19,6 +19,7 @@ class Users extends Component {
       return (
         <div key={user.id} className="thumbnail box">
           <UserCard user={user}/>
+          <br></br>
         </div>
       )
     })
@@ -31,11 +32,12 @@ class Users extends Component {
       <div>
         <div className="jumbotron"  id="title" >
           <div className="container">
-            <h1> Meet . New . Friends </h1>
+            <h1 className="left-title"> Meet Old Friends </h1>
+            <h1 className="right-title"> Make New Ones </h1>
           </div>
         </div>
 
-        <div className="container wrapper" >
+        <div className="wrapper">
           {renderUsers}
         </div>
       </div>

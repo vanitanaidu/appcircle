@@ -16,11 +16,12 @@ class Comments extends Component {
   renderComments = () => {
     return _.map(this.props.comments, comment => {
       return (
-        <li className="list-group-item disabled" key={comment.id} >
-          <div> {comment.content} </div>
-          <DeleteComment userId={this.props.userId} id={comment.id} history={this.props.history} />
-          <br/>
-        </li>
+          <div className="comment" key={comment.id}>
+            {comment.content}
+            <DeleteComment userId={this.props.userId} id={comment.id} history={this.props.history} />
+          </div>
+
+
       )
     })
   }
@@ -28,15 +29,15 @@ class Comments extends Component {
   render() {
     const renderComments = this.props.commentLoading ? "loading..." : this.renderComments()
     return (
-      <div className="container">
-        <h2> Comments </h2>
+      <div className="container" id="show-page-comments">
+        <h4> Comments </h4>
         <br/>
-        <ul>
-          {renderComments}
-        </ul>
+          <div className="grid-container" id="show-comments">
+            {renderComments}
+          </div>
+
       </div>
     )
-
   }
 }
 

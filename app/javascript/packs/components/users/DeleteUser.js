@@ -14,8 +14,8 @@ class DeleteUser extends Component {
 
   render() {
     return (
-      <div className="container">
-      <button className="btn-default float-right" onClick={this.onDeleteClick.bind(this)}>
+      <div >
+      <button onClick={this.onDeleteClick.bind(this)}>
          Delete User
       </button>
      </div>

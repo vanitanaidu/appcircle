@@ -11,18 +11,22 @@ export default class UserCard extends Component {
   userCard = () => {
     const {user} = this.props
     return (
-      <div>
-        <Link to= {"users/" + user.id} >
+      <div className="user-card-details">
+        <Link to= {"users/" + user.id}>
             <Images/>
-            <br />
+            <br/>
             <h5> {user.name} </h5>
-            <h6> About me: <small> {user.about_me} </small> </h6>
-            <h6> Interests: <small> {user.interests} </small> </h6>
-            <h6> State/City: <small> {user.state} - {user.city} </small> </h6>
+            <br/>
+            <h5> About me: </h5>
+            <h5> <small> {user.about_me} </small> </h5>
+
+            <h5> Interests: <small> {user.interests} </small> </h5>
+            
+            <h5> State/City: <small> {user.state} - {user.city} </small> </h5>
             <br></br>
 
         </Link>
-        <LikeButton userId={user.id} user={this.props.user}/>
+        <div id="like-button-user-card"> <LikeButton userId={user.id} user={this.props.user}/> </div>
       </div>
     )
   }

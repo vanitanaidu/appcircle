@@ -84,11 +84,14 @@ class AddUserForm extends Component {
   render() {
 
     return (
-      <div >
-        <form onSubmit={this.handleOnSubmit}>
-
-          <div className="form-group">
+      <div>
+        <form id="new-user-form" onSubmit={this.handleOnSubmit}>
+          <div className="container row form" >
+            <div className="col small">
               <label htmlFor="name"> Name </label>
+              <i className="material-icons small">
+                person
+              </i>
               <input
                 className="form-control"
                 type="text"
@@ -97,10 +100,13 @@ class AddUserForm extends Component {
                 onChange={(event) => this.handleOnChange(event)}
               />
               {this.state.nameError ? <div className="alert alert-danger">{this.state.nameError}</div> : null}
-          </div>
+            </div>
 
-          <div className="form-group">
+            <div className="col small">
               <label htmlFor="age"> Age </label>
+              <i className="material-icons small">
+                cake
+              </i>
               <input
                 className="form-control"
                 name="age"
@@ -108,10 +114,14 @@ class AddUserForm extends Component {
                 onChange={(event) => this.handleOnChange(event)}
                />
               {this.state.ageError ? <div className="alert alert-danger">{this.state.ageError}</div> : null}
+            </div>
           </div>
-
-          <div className="form-group">
+          <div className="container row form">
+            <div className="col small">
               <label htmlFor="state"> State </label>
+              <i className="material-icons small">
+                map
+              </i>
               <input
                 className="form-control"
                 name="state"
@@ -119,10 +129,13 @@ class AddUserForm extends Component {
                 onChange={(event) => this.handleOnChange(event)}
               />
               {this.state.stateError ? <div className="alert alert-danger">{this.state.stateError}</div> : null}
-          </div>
+            </div>
 
-          <div className="form-group">
+            <div className="col small">
               <label htmlFor="city"> City </label>
+              <i className="material-icons small">
+                location_city
+              </i>
               <input
                 className="form-control"
                 name="city"
@@ -130,11 +143,14 @@ class AddUserForm extends Component {
                 onChange={(event) => this.handleOnChange(event)}
                />
                {this.state.cityError ? <div className="alert alert-danger">{this.state.cityError}</div> : null}
-
+            </div>
           </div>
 
           <div className="form-group">
               <label htmlFor="about_me"> About Me </label>
+              <i className="material-icons big">
+                view_headline
+              </i>
               <textarea
                 className="form-control"
                 name="about_me"
@@ -145,6 +161,9 @@ class AddUserForm extends Component {
 
           <div className="form-group">
               <label htmlFor="past_jobs"> Past Jobs </label>
+              <i className="material-icons big">
+                work
+              </i>
               <textarea
                 className="form-control"
                 name="past_jobs"
@@ -155,6 +174,9 @@ class AddUserForm extends Component {
 
           <div className="form-group">
               <label htmlFor="interests"> Interests </label>
+              <i className="material-icons big">
+                favorite_border
+              </i>
               <textarea
                 className="form-control"
                 name="interests"
@@ -166,6 +188,9 @@ class AddUserForm extends Component {
 
           <div className="form-group">
               <label htmlFor="schools"> Schools </label>
+              <i className="material-icons big">
+                school
+              </i>
               <textarea
                 className="form-control"
                 name="schools"
@@ -176,6 +201,9 @@ class AddUserForm extends Component {
 
           <div className="form-group">
               <label htmlFor="languages"> Languages </label>
+              <i className="material-icons big">
+                language
+              </i>
               <textarea
                 className="form-control"
                 name="languages"
@@ -186,6 +214,9 @@ class AddUserForm extends Component {
 
           <div className="form-group">
               <label htmlFor="fav_movies"> Favourite Movies </label>
+              <i className="material-icons big">
+                theaters
+              </i>
               <textarea
                 className="form-control"
                 name="fav_movies"
@@ -196,6 +227,9 @@ class AddUserForm extends Component {
 
           <div className="form-group">
               <label htmlFor="fav_food"> Favourite Food </label>
+              <i className="material-icons big">
+                fastfood
+              </i>
               <textarea
                 className="form-control"
                 name="fav_food"

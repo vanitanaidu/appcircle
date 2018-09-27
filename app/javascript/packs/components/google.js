@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import FacebookLogin from 'react-facebook-login';
+import GoogleLogin from 'react-google-login';
 
-export default class Facebook extends Component {
+export default class Google extends Component {
   state = {
     isLoggedIn: false,
     userID: '',
@@ -10,7 +10,7 @@ export default class Facebook extends Component {
     picture: '',
   }
 
-responseFacebook = response => {
+responseGoogle = (response) => {
   this.setState({
     isLoggedIn: true,
     userID: response.userID,
@@ -20,19 +20,18 @@ responseFacebook = response => {
   })
 }
 
-  componentClicked = () => {
-    console.log("clicked")
-  }
+responseFailure = (response) => {
+  return <div> This was a failure</div>
+}
+
   render() {
-    let fbContent;
+    let googleContent;
       if(this.state.isLoggedIn) {
-        fbContent = (
+        googleContent = (
           <div style={{
             width: '400px',
             margin: 'auto',
-            background: '400px',
-            color: 'white',
-            float: 'right',
+            background: '400px'
             }}>
 
             <h5> Welcome {this.state.name} </h5>
@@ -40,16 +39,17 @@ responseFacebook = response => {
             // <img scr={this.state.picture} alt={this.state.name} /> if you want the image displayed
         )
       } else {
-          fbContent = (<FacebookLogin
-          appId="172059453632437"
-          autoLoad={true}
-          fields="name,email,picture"
-          onClick={this.componentClicked}
-          callback={this.responseFacebook} />)
+          googleContent = (<GoogleLogin
+          <GoogleLogin
+            clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseFailure}
+          />)
       }
     return (
       <div>
-        {fbContent}
+        {googleContent}
       </div>
     )
   }

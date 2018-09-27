@@ -3,15 +3,56 @@
 }
 
 
+
 /******************** user index page ********************/
+div.user-card-details a {
+  color: #595959;
+  text-decoration: none;
+}
+
+div.user-card-details a:hover {
+  color: #1a1a1a;
+
+}
+
 .navbar-custom {
   background-color: #009973;
+  height: 85px;
+  z-index: 9;
 }
 
+h1.left-title {
+  margin-top: 10%;
+  letter-spacing: 20px;
+  word-spacing: 30px;
+  text-align: center;
+  color: #595959;
+}
+
+h1.right-title {
+  letter-spacing: 20px;
+  word-spacing: 30px;
+  text-align: center;
+  color: #595959;
+}
+div#title.jumbotron {
+  margin-bottom: 5px;
+}
+
+div.wrapper {
+  margin-left: 10%;
+  padding:0;
+}
+
+a#text {
+  font-size: 1.6em;
+}
 
 #navbar-bottom {
-  margin-bottom: 30px;
+  position: fixed;
+  width: 100%;
 }
+
 
 #text {
   color: #e6e6e6;
@@ -23,11 +64,13 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 300px 300px 300px;
+  grid-template-columns: 300px 300px 300px 300px;
   grid-gap: 30px;
   background-color: #ffffff;
   color: #fff;
+  margin-bottom: 80px;
 }
+
 
 .box {
   background-color: #fff;
@@ -35,8 +78,21 @@
   border-radius: 5px;
   padding: 10px;
   border: 5px solid #f2f2f2;
+  position: relative;
 }
 
+#like-button-user-card button {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  box-shadow: 3px 4px 8px #bfbfbf;
+}
+
+
+img.embed-responsive-item {
+  background-size: cover;
+  float: left;
+}
 /********************* user show page *********************/
 
 /*#show-user-detail {
@@ -45,10 +101,137 @@
   padding: 10px;
 }*/
 
+#like-button button {
+  margin-right: 50%;
+  margin-top: 44px;
+  float:right;
+  box-shadow: 3px 4px 8px #bfbfbf;
+  padding: 10px;
+    background-color: #009973;
+    color: white;
+}
+
 .img-responsive {
   max-height: 500px;
   max-width: 350px;
 }
+
+div.container.show-container {
+  width: 100%;
+  margin-top: 10%;
+}
+
+div.col-md-7.details {
+  margin-top: 6%;
+}
+
+div#delete-button button {
+  margin-top: 43px;
+  float:left;
+  padding: 10px;
+  box-shadow: 2px 3px 10px grey;
+}
+
+div#edit-submit-button button {
+  margin-top: 43px;
+  margin-right: 10px;
+  float: left;
+  padding: 10px;
+  box-shadow: 2px 3px 10px grey;
+}
+
+div#edit-submit-button button:hover, div#delete-button button:hover {
+  box-shadow: 0px 1px 2px grey;
+  border: 1px solid rgb(186, 186, 186);
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns:400px 400px;
+  padding: 10px;
+}
+
+
+.item, .item1 {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  padding-bottom: 20px;
+  font-size: 20px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.item1 {
+  font-weight: bold;
+  padding-left: 1px
+}
+
+
+div#show-page-comments.container {
+  margin-top: 150px;
+}
+
+div#show-page-comments h4 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+div#show-comments.grid-container {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns:auto auto;
+  grid-column-gap: 60px;
+  padding: 10px;
+}
+
+.comment {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-bottom: 100px;
+  font-size: 20px;
+  text-align: left;
+  position: relative;
+}
+
+button.btn.btn-small.float-right {
+position: absolute;
+left: 1px;
+bottom: 65px;
+padding: 0;
+color: #808080;
+}
+
+input.form-control {
+  margin-bottom: 40px;
+  display: block;
+  position:relative;
+}
+
+button.upload-comment-button, button.save-user-button {
+  display: block;
+  position: absolute;
+  right: 200px;
+  margin-bottom: 120px;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #eee;
+  box-shadow: 5px 5px 8px grey;
+}
+
+button.upload-comment-button:hover, button.save-user-button:hover {
+  box-shadow: 0px 1px 2px grey;
+  border: 1px solid rgb(186, 186, 186);
+  background-color: #e6e6e6;
+}
+
+button.save-user-button {
+  right: 20px;
+}
+
+input:focus {
+    outline:none;
+}
+
 
 /*********************  new user  ********************/
 
@@ -58,15 +241,46 @@
   margin-right: 180px
 }
 
+form#new-user-form {
+  padding-top: 180px;
+}
+
+div.container.row.form {
+  width: 900px;
+  margin-left: 150px;
+}
+
+div.form-group {
+  position: relative;
+}
+i.material-icons.big {
+  position: absolute;
+  bottom: 20px;
+  left: 15px;
+}
+
+div.col.small {
+  position: relative;
+}
+
+i.material-icons.small {
+  position: absolute;
+  top: 43px;
+  z-index: 1;
+  right: 25px;
+}
+
+label {
+  font-size: 1.5em;
+}
+/*div.col {
+    position: relative;
+}*/
+
   /*********************  new comment  ********************/
 
-  .form-group {
-    margin-top: 70px;
-    margin-left: 180px;
-    margin-right: 200px;
-  }
-
-  .upload-comment-button {
-    margin-top: 10px;
-    margin-bottom: 50px;
-  }
+.form-group {
+  margin-top: 70px;
+  margin-left: 180px;
+  margin-right: 200px;
+}

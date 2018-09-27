@@ -33,7 +33,7 @@ class LikeButton extends Component {
     }
     this.props.updateUser(user)
 
-    
+
     //react way of doing it
     // const id = this.props.user.id
     // const user = {
@@ -59,7 +59,7 @@ class LikeButton extends Component {
 
     return (
       <div>
-        <button onClick={this.buttonClick}>  {this.props.user.likes < 1 ? 'Likes 0' : 'Likes'} {this.props.user.likes} </button>
+        <button onClick={this.buttonClick}>  Likes {this.props.user.likes} </button>
       </div>
     )
   }

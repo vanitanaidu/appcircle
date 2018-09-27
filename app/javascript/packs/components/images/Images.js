@@ -35,7 +35,7 @@ export default class Images extends Component {
   render() {
 
     return (
-          <div className="img-responsive embed-responsive embed-responsive-4by3">
+          <div className="img-responsive embed-responsive embed-responsive-4by3" id="show-page-image">
             <img className ="embed-responsive-item" src={this.chooseImage()} />
           </div>
     )
