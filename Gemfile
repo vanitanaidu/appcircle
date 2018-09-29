@@ -28,8 +28,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 
 gem 'bootstrap', '~> 4.0.0'
-
-gem "omniauth-google-oauth2", "~> 0.2.1"
+# 
+# gem "omniauth-google-oauth2", "~> 0.2.1"
 
 gem 'dotenv-rails'
 

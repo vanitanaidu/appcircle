@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
-
-export default class Google extends Component {
+ export default class Google extends Component {
   state = {
     isLoggedIn: false,
     userID: '',
@@ -9,8 +8,7 @@ export default class Google extends Component {
     email: '',
     picture: '',
   }
-
-responseGoogle = (response) => {
+ responseGoogle = (response) => {
   this.setState({
     isLoggedIn: true,
     userID: response.userID,
@@ -19,12 +17,10 @@ responseGoogle = (response) => {
     picture: response.picture.data.url,
   })
 }
-
-responseFailure = (response) => {
+ responseFailure = (response) => {
   return <div> This was a failure</div>
 }
-
-  render() {
+   render() {
     let googleContent;
       if(this.state.isLoggedIn) {
         googleContent = (
@@ -33,13 +29,12 @@ responseFailure = (response) => {
             margin: 'auto',
             background: '400px'
             }}>
-
-            <h5> Welcome {this.state.name} </h5>
+             <h5> Welcome {this.state.name} </h5>
           </div>
             // <img scr={this.state.picture} alt={this.state.name} /> if you want the image displayed
         )
       } else {
-          googleContent = (
+          googleContent = (<GoogleLogin
           <GoogleLogin
             clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
             buttonText="Login"
