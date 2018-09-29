@@ -39,7 +39,7 @@ responseFailure = (response) => {
             // <img scr={this.state.picture} alt={this.state.name} /> if you want the image displayed
         )
       } else {
-          googleContent = (<GoogleLogin
+          googleContent = (
           <GoogleLogin
             clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
             buttonText="Login"
