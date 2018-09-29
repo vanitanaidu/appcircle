@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 
-gem 'webpacker', '~> 3.0'
+gem 'webpacker', '~> 3.5'
 #use webpacker to compile all assets
 
 gem 'paperclip', '~> 5.1.0'

@@ -18,12 +18,9 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-<<<<<<< HEAD
     "react-facebook-login": "^4.0.1",
     "react-google-login": "^3.2.1",
-=======
     "react-google-oauth": "^1.0.0",
->>>>>>> 25b94055ebf230b98a9199fbddaab6040df633a7
     "react-images-upload": "^1.1.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
