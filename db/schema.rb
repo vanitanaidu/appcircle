@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315014744) do
+ActiveRecord::Schema.define(version: 20180523000328) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20180315014744) do
     t.string   "languages"
     t.string   "schools"
     t.integer  "likes",      default: 0
+    t.string   "email"
+    t.integer  "uid"
   end
 
 end
